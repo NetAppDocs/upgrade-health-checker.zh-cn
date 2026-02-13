@@ -1,0 +1,27 @@
+---
+indexpage:
+  title: 升级 Health Checker 文档
+  summary: 升级运行状况检查器执行全面的运行状况检查，以帮助您计划和执行成功的 ONTAP 升级。
+  keywords: upgrade health checker, ontap, upgrade advisor
+  lead: 升级运行状况检查器执行全面的运行状况检查，以帮助您计划和执行成功的 ONTAP 升级。
+  tiles:
+  - title: 开始使用
+    links:
+    - title: 了解 Upgrade Health Checker
+      url: learn-about-upgrade-health-checker.html
+    - title: 设置 Upgrade Health Checker
+      url: set-up-upgrade-health-checker.html
+  - title: 使用 Upgrade Health Checker
+    links:
+    - title: 生成 ONTAP 升级报告
+      url: generate-report-upgrade-health-checker.html
+    - title: 自动生成报告
+      url: automate-report-upgrade-health-checker.html
+  - title: 更多资源
+    links:
+    - title: 了解 Upgrade Health Checker 的输入参数
+      url: upgrade-health-checker-input-parameters.html
+    - title: 升级运行状况检查器的常见问题
+      url: faq.html
+    - title: Upgrade Advisor 文档
+      url: https://docs.netapp.com/us-en/active-iq/upgrade_advisor_overview.html

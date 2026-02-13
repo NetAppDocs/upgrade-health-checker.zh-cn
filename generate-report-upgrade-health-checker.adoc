@@ -1,0 +1,104 @@
+---
+sidebar: sidebar 
+permalink: generate-report-upgrade-health-checker.html 
+keywords: upgrade, health, checker, report 
+summary: 您可以使用 Upgrade Health Checker 为单个或多个 ONTAP 集群生成升级计划。 
+---
+= 使用 Upgrade Health Checker 生成升级计划
+:hardbreaks:
+:allow-uri-read: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+您可以使用 Upgrade Health Checker 为单个或多个 ONTAP 集群生成升级计划。
+
+如果您有一个具有多个群集的大型复杂环境，您还可以link:automate-report-upgrade-health-checker.html["自动生成升级报告"]帮助维护最新的升级计划。
+
+.开始之前
+要了解有关特定 Upgrade Health Checker 参数和工具如何接受输入的优先级顺序的详细信息，请参阅 link:upgrade-health-checker-input-parameters.html["了解 Upgrade Health Checker 的输入参数"]。
+
+.步骤
+. 在第一次运行之前，对二进制文件设置执行权限：
++
+[source, cli]
+----
+chmod +x uhc
+----
++
+
+NOTE: Upgrade Health Checker 是一个独立的包，需要在执行前自行解包。这可能需要几秒钟时间。
+
+. 在完成 Upgrade Health Checker 的完整运行之前，请执行全面检查，以确保该工具可以连接到集群和所需的端点：
++
+[source, cli]
+----
+--test all
+----
++
+全面检查确保托管 Upgrade Health Checker 的虚拟机具有：
+
++
+** 通过 HTTPS 连接到 ONTAP 集群 IP 地址
+** 通过 HTTPS 连接到遥测端点(https://support.netapp.com/[]）
+** 通过 HTTPS 连接到自动更新端点(https://api.uhc.netapp.com[]和 https://gql.aiq.netapp.com[]）
+** 至少 4 GB 的可用 `/tmp`空间
+
+
+. （可选）如果要使用配置文件存储参数，请将位于下载二进制文件相同位置的  `config.yaml.example` 文件重命名为  `config.yaml`。
++
+以下是示例 config.yaml 文件：
+
++
+[listing]
+----
+# Application Configuration
+APP:
+  RUNS_PATH: "/opt/uhc/runs"
+
+# Cluster Credentials
+CLUSTER:
+  IP: "x.x.x.x"
+  USERNAME: "admin"
+  PASSWORD: "xyz"
+  TARGET_ONTAP_VERSION: ""  # Optional: Specify target ONTAP version (e.g., "9.16.1" or "current" to keep existing version). Leave empty to prompt user.
+  ACCEPT_EULA: false  # Optional: Set to true to accept EULA through config. If false/empty, user will be prompted interactively.
+----
+. 通过输入要升级到的 ONTAP 版本并接受 EULA 来运行升级运行状况检查器，根据需要包括其他参数。
++
+
+NOTE: EULA 是一份多页文档。输入 `all`以一次查看整个文档，然后输入 `y`以接受它。
+
++
+集群的 AutoSupport 日志下载完成后，根据集群节点数量的不同，处理时间一般需要一到两分钟。由于不同的 ONTAP 软件版本处理 AutoSupport 收集的方式不同，因此每次运行升级运行状况检查器都取决于集群的当前负载和当前 ONTAP 版本。
+
++
+.. 请参阅 link:upgrade-health-checker-input-parameters.html["了解 Upgrade Health Checker 的输入参数"]，熟悉可用的 Upgrade Health Checker 参数、输入优先级顺序和某些参数的默认值。
++
+Input Parameters Guide 还提供了有关指定自定义配置文件路径和运行路径以简化工作流程的信息。最佳做法是为每个群集创建一个自定义输出目录，以有效地组织报告和日志。
+
+.. 通过接受 EULA 并输入目标 ONTAP 版本和任何其他参数，运行升级运行状况检查器。
++
+[source, cli]
+----
+./uhc
+----
+
+
+. 升级运行状况检查器完成检查后，导航到  `runs` 文件夹以查看升级计划和集群报告。
++
+
+NOTE: 程序的每次执行都是"唯一运行"，将在关联的  `runs` 文件夹中包含所有相关数据、日志和结果。
+
+. 在 Web 浏览器中打开报告文件（已命名 `uhc_<cluster-name>_<YYYYMMDDHHMMSS>.html`）以查看报告。如果您在远程主机上运行它，请先将报告文件下载到可以在 Web 浏览器上查看报告的计算机。
++
+日志路径和报告路径如下：
+
++
+** 日志路径： `<output-path>/<unique-run-dir>/<cluster-name>/logs`
+** 报告路径： `<output-path>/<unique-run-dir>/<cluster-name>/results/uhc_<cluster-name>_<YYYYMMDDHHMMSS>.html`
+
+
+

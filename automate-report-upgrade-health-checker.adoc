@@ -1,0 +1,67 @@
+---
+sidebar: sidebar 
+permalink: automate-report-upgrade-health-checker.html 
+keywords: upgrade, health, checker 
+summary: 您可以自动生成升级运行状况检查器报告，以减少在大型复杂环境中规划 ONTAP 升级时的手动工作量。 
+---
+= 使用 Upgrade Health Checker 自动生成升级计划
+:hardbreaks:
+:allow-uri-read: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+您可以自动生成升级运行状况检查器报告，以减少在大型复杂环境中规划 ONTAP 升级时的手动工作量。
+
+.步骤
+. 为确保成功创建升级报告，请完成 link:generate-upgrade-health-checker-report.html["生成 ONTAP 升级报告"] 中概述的所有必要设置步骤和一次性任务。
+. 创建脚本以运行 Upgrade Health Checker，并为您的环境设置相应的参数。
++
+[source, cli]
+----
+./uhc \
+  --cluster-ip=<cluster-ip> \
+  --cluster-username=<cluster-username> \
+  --cluster-password=<cluster-password> \
+  --target-ontap-version=<target-ontap-version> \
+  --accept-eula=true
+----
++
+以下是一个 cronjob 示例，该作业在周一至周五凌晨 4 点运行该工具。binary 和 config.yaml 文件已安装到 /opt/uhc/tool/ 中。
+
++
+Bash 脚本：
+
++
+[listing]
+----
+#!/bin/bash
+cd /opt/uhc/tool
+/opt/uhc/tool/uhc --accept-eula true --cluster-ip cluster-mgmt1.example.com --target-ontap-version current --cluster-username uhctool --cluster-password passw0rd
+/opt/uhc/tool/uhc --accept-eula true --cluster-ip cluster-mgmt2.example.com --target-ontap-version 9.14.1 --cluster-username uhctool --cluster-password passw0rd
+----
++
+Cron 作业：
+
++
+[listing]
+----
+0 4 * * 1-5 /usr/local/bin/uhccron.sh
+----
+. 升级运行状况检查器完成检查后，导航到  `runs` 文件夹以查看升级计划和集群报告。
++
+
+NOTE: 程序的每次执行都是唯一的运行，将在关联的  `runs` 文件夹中包含所有相关数据、日志和结果。
+
+. 在 Web 浏览器中打开报告文件（已命名 `uhc_<cluster-name>_<YYYYMMDDHHMMSS>.html`）以查看报告。如果在远程主机上运行 Upgrade Health Checker，请先将报告文件下载到可以在 Web 浏览器上查看的计算机。
++
+日志路径和报告路径如下：
+
++
+** 日志路径： `<output-path>/<unique-run-dir>/<cluster-name>/logs`
+** 报告路径： `<output-path>/<unique-run-dir>/<cluster-name>/results/uhc_<cluster-name>_<YYYYMMDDHHMMSS>.html`
+
+
+

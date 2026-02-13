@@ -1,0 +1,44 @@
+---
+sidebar: sidebar 
+permalink: faq-upgrade-health-checker.html 
+keywords: upgrade, health, checker, faq, frequently asked questions, frequently asked questions about upgrade health checker 
+summary: '升级运行状况检查器的常见问题 (FAQ)。' 
+---
+= 升级运行状况检查器的常见问题
+:hardbreaks:
+:allow-uri-read: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+升级运行状况检查器的常见问题 (FAQ)。
+
+
+
+== Upgrade Health Checker 与 Upgrade Advisor 有何不同？
+
+Upgrade Health Checker 是一种现场工具，适用于具有大型或复杂环境、对互联网的访问受限或现有自动化和协调框架的用户。Upgrade Advisor 适用于环境较小的用户，他们更喜欢基于云的、以 UI 为中心的体验。
+
+您可以详细了解 link:learn-about-upgrade-health-checker.html["升级运行状况检查器"] 和 link:https://docs.netapp.com/us-en/active-iq/upgrade_advisor_overview.html["Upgrade Advisor"^]，以确定哪种工具最适合您的需求。
+
+
+
+== 升级运行状况检查器报告包含哪些信息？
+
+升级运行状况检查器报告提供了有关在升级 ONTAP 群集之前需要解决的潜在阻止因素和警告的详细信息、与群集相关的风险以及有关要升级到的 ONTAP 版本中新功能和增强功能的信息。
+
+
+
+== 可以在没有互联网连接的情况下使用 Upgrade Health Checker 吗？
+
+您无需互联网连接即可运行 Upgrade Health Checker。它使用您的 ONTAP 集群的当前配置数据生成现场升级计划和报告。
+
+但是，需要访问互联网才能自动更新工具。如果您的环境缺乏互联网连接，请联系 NetApp 获取有关如何确保升级运行状况检查器工具保持最新的指导。
+
+
+
+== Upgrade Health Checker 支持哪些版本的 ONTAP？
+
+升级运行状况检查器支持升级到 ONTAP 9.11.1 及更高版本。

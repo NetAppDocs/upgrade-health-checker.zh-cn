@@ -1,0 +1,20 @@
+---
+sidebar: sidebar 
+permalink: learn-about-upgrade-health-checker.html 
+keywords: upgrade, health, checker, ontap 
+summary: 升级运行状况检查器是一种升级咨询服务工具，可提供详细信息和建议，以帮助您成功完成 ONTAP 升级。 
+---
+= 了解 Upgrade Health Checker
+:hardbreaks:
+:allow-uri-read: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+Upgrade Health Checker 是一种升级咨询服务工具，可提供详细信息和建议，以帮助您成功完成 ONTAP 升级。它会进行现场全面的运行状况检查，以识别在执行升级之前必须解决的障碍和警告。
+
+升级运行状况检查器可以集成到现有的自动化和编排框架中，以帮助升级单个或多个群集。它使用您最新的 AutoSupport 数据生成详细、准确的报告，报告与您的集群相关的风险、有关您要升级到的 ONTAP 版本中新功能和增强功能的信息，以及在尝试 ONTAP 升级之前需要采取的任何操作。
+
+要了解有关 Upgrade Health Checker 的详细信息，请参见 link:faq-upgrade-health-checker.html["升级运行状况检查器的常见问题"]。

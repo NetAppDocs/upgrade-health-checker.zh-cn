@@ -1,0 +1,400 @@
+---
+sidebar: sidebar 
+permalink: upgrade-health-checker-input-parameters.html 
+keywords: upgrade, health, checker, input, parameter 
+summary: 您可以了解有关 Upgrade Health Checker 的输入参数的更多信息，以帮助您为 ONTAP 集群生成升级报告。 
+---
+= 了解 Upgrade Health Checker 的输入参数
+:hardbreaks:
+:allow-uri-read: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+您可以了解有关 Upgrade Health Checker 的输入参数的更多信息，以及如何通过 CLI 参数、配置文件或交互式提示提供这些参数，以帮助您为 ONTAP 集群生成升级报告。
+
+
+
+== 输入法优先级
+
+升级运行状况检查器为所有参数提供多个输入选项。其接受输入的优先顺序为：
+
+. CLI 参数（最高优先级）
+. 配置文件 (`config.yaml`)
+. 交互式提示（最低优先级）
+
+
+当通过多种方法提供参数时，工具将使用最高优先级来源的值。
+
+
+
+== 输入参数
+
+
+
+=== 集群 IP
+
+该 `--cluster-ip` 参数指定要连接到的 ONTAP 集群的 IP 地址或主机名。
+
+提供此参数的优先级顺序为：
+
+. CLI 参数： `--cluster-ip`
+. 配置文件： `CLUSTER.IP`
+. 交互式提示
+
+
+.示例
+[%collapsible]
+====
+* CLI 参数：
++
+`./uhc --cluster-ip 192.168.1.100`
+
+* Config.yaml：
++
+[listing]
+----
+CLUSTER:
+  IP: "192.168.1.100"
+----
+* 交互模式（如果上面未提供）：
++
+工具将提示： `Enter cluster IP address:`
+
+
+
+====
+
+
+=== 集群用户名
+
+该 `--cluster-username` 参数指定用于与 ONTAP 集群进行身份验证的用户名。
+
+提供此参数的优先级顺序为：
+
+. CLI 参数： `--cluster-username`
+. 配置文件： `CLUSTER.USERNAME`
+. 交互式提示
+
+
+.示例
+[%collapsible]
+====
+* CLI 参数：
++
+`./uhc --cluster-username admin`
+
+* Config.yaml：
++
+[listing]
+----
+CLUSTER:
+  USERNAME: "admin"
+----
+* 交互模式（如果上面未提供）：
++
+工具将提示： `Enter cluster username:`
+
+
+
+====
+
+
+=== 集群密码
+
+该 `--cluster-password` 参数指定用于与 ONTAP 集群进行身份验证的密码。
+
+提供此参数的优先级顺序为：
+
+. CLI 参数： `--cluster-password`
+. 配置文件： `CLUSTER.PASSWORD`
+. 交互式提示（安全输入）
+
+
+.示例
+[%collapsible]
+====
+* CLI 参数（出于安全考虑，不建议使用）：
++
+`./uhc --cluster-password mypassword`
+
+* Config.yaml（确保限制文件权限）：
++
+[listing]
+----
+CLUSTER:
+  PASSWORD: "mypassword"
+----
+* 交互模式（推荐 - 密码隐藏）：
++
+工具将提示： `Enter cluster password:`
+
+
+
+====
+
+
+=== 目标 ONTAP 版本
+
+该 `--target-ontap-version`参数指定要升级到以进行分析的 ONTAP 版本。使用"current"保留现有集群 ONTAP 版本。
+
+提供此参数的优先级顺序为：
+
+. CLI 参数： `--target-ontap-version`
+. 配置文件： `CLUSTER.TARGET_ONTAP_VERSION`
+. 交互式选择菜单
+
+
+.示例
+[%collapsible]
+====
+* CLI 参数：
++
+ONTAP 的更新版本： `./uhc --target-ontap-version 9.15.1`
+
++
+保留当前版本的 ONTAP： `./uhc --target-ontap-version current`
+
+* Config.yaml：
++
+[listing]
+----
+CLUSTER:
+  TARGET_ONTAP_VERSION: "9.15.1"
+----
+* 交互模式（如果上面未提供）：
++
+工具将显示可用版本并提示选择
+
+
+
+====
+
+
+=== 接受 EULA
+
+该 `--accept-eula` 参数指定是否接受最终用户许可协议。必须设置为 `true` 才能继续。
+
+提供此参数的优先级顺序为：
+
+. CLI 参数： `--accept-eula`
+. 配置文件： `CLUSTER.ACCEPT_EULA`
+. 交互式提示
+
+
+.示例
+[%collapsible]
+====
+* CLI 参数：
++
+`./uhc --accept-eula true`
+
+* Config.yaml：
++
+[listing]
+----
+CLUSTER:
+  ACCEPT_EULA: true
+----
+* 交互模式（如果上面未提供）：
++
+工具将显示 EULA 并提示接受
+
+
+
+====
+
+
+=== 配置文件路径
+
+此  `--config-path` 参数指定自定义配置 YAML 文件的路径。
+
+提供此参数的优先级顺序为：
+
+. CLI 参数： `--config-path`
+. 默认值： `config.yaml`
+
+
+.示例
+[%collapsible]
+====
+* CLI 参数：
++
+`./uhc --config-path /path/to/custom_config.yaml`
+
+* 默认值（如果未提供）：
++
+工具将在当前目录中查找 config.yaml
+
+
+
+====
+
+
+=== 运行输出路径
+
+ `--runs-path` 参数指定用于存储运行输出和报告的自定义目录。
+
+提供此参数的优先级顺序为：
+
+. CLI 参数： `--runs-path`
+. 配置文件： `APP.RUNS_PATH`
+. 默认值： `./runs`
+
+
+.示例
+[%collapsible]
+====
+* CLI 参数：
++
+`./uhc --runs-path /custom/output/path`
+
+* Config.yaml：
++
+[listing]
+----
+APP:
+  RUNS_PATH: "/custom/output/path"
+----
+* 默认值（如果未提供）：
++
+工具将使用  `./runs` 目录
+
+
+
+====
+
+
+=== 跳过兼容性检查
+
+该 `--skip-compatibility-check`参数绕过硬件兼容性检查并使用要升级到的指定版本的 ONTAP。
+
+
+CAUTION: 仅当您确定目标 ONTAP 版本与您的硬件兼容时，才使用此选项。
+
+提供此参数的优先级顺序为：
+
+. CLI 参数： `--skip-compatibility-check`
+. 配置文件： `CLUSTER.SKIP_COMPATIBILITY_CHECK`
+. 默认值： `false`
+
+
+.示例
+[%collapsible]
+====
+* CLI 参数：
++
+`./uhc --skip-compatibility-check true`
+
+* Config.yaml：
++
+[listing]
+----
+CLUSTER:
+  SKIP_COMPATIBILITY_CHECK: true
+----
+
+
+====
+
+
+=== 禁用遥测
+
+要禁用遥测，请将以下内容添加到  `config.yaml` 文件：
+
+[listing]
+----
+TELEMETRY:
+  ENABLED: false
+----
+
+
+=== 禁用自动更新
+
+若要禁用 Upgrade Health Checker 的自动更新，请将以下内容添加到 `config.yaml`文件中：
+
+[listing]
+----
+AUTO_UPDATE:
+  ENABLED: false
+----
+
+
+== 使用每种输入法的示例
+
+
+
+=== 组合的 CLI 参数
+
+[listing]
+----
+./uhc \
+  --cluster-ip 192.168.1.100 \
+  --cluster-username admin \
+  --cluster-password mypassword \
+  --target-ontap-version 9.15.1 \
+  --accept-eula true \
+  --config-path /path/to/custom_config.yaml \
+  --runs-path /custom/output \
+  --skip-compatibility-check false
+----
+
+
+=== Config.yaml 文件
+
+[listing]
+----
+CLUSTER:
+  IP: "192.168.1.100"
+  USERNAME: "admin"
+  PASSWORD: "mypassword"
+  TARGET_ONTAP_VERSION: "9.15.1"
+  ACCEPT_EULA: true
+  SKIP_COMPATIBILITY_CHECK: false
+
+APP:
+  RUNS_PATH: "/custom/output"
+----
+
+
+=== 交互模式
+
+要交互式提示所有必需的输入参数，请运行不带参数的 Upgrade Health Checker：
+
+[source, bash]
+----
+./uhc
+----
+
+
+== 其他命令
+
+除了完整运行该工具之外，这些命令还提供了一些额外的功能：
+
+* 显示帮助
++
+`./uhc --help`
+
+* 显示版本
++
+`./uhc --version`
+
+* 测试集群连通性
++
+`./uhc --test-connectivity cluster`
+
+* 测试遥测连接性
++
+`./uhc --test-connectivity telemetry`
+
+* 测试自动更新连接性
++
+`./uhc --test-connectivity autoupdate`
+
+* 运行所有测试
++
+`./uhc --test all`
+
+

@@ -1,0 +1,24 @@
+---
+sidebar: sidebar 
+permalink: whats-new.html 
+keywords: upgrade, health, checker, whats new, release, notes 
+summary: 了解此文档站点的新增功能。 
+---
+= Upgrade Health Checker 的新增功能
+:hardbreaks:
+:allow-uri-read: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+了解 Upgrade Health Checker 中的新增功能。您可以通过导航到 link:https://console.netapp.com/automationHub["NetApp Console 自动化中心"^] 中的 Upgrade Health Checker 图块并查看最新的 Upgrade Health Checker 下载文件来找到其他增强功能信息。
+
+
+
+== 2026 年 2 月 12 日
+
+Upgrade Health Checker 为生成全面的现场报告提供了一种新的解决方案，使您能够成功完成 ONTAP 升级。它可以与现有的自动化和编排框架一起使用，以在升级单个或多个集群时提高效率。Upgrade Health Checker 支持升级到 ONTAP 9.11.1 及更高版本。
+
+link:learn-about-upgrade-health-checker.html["详细了解 Upgrade Health Checker"]。
