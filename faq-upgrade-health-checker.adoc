@@ -35,7 +35,7 @@ Upgrade Health Checker 是一种现场工具，适用于具有大型或复杂环
 
 您无需互联网连接即可运行 Upgrade Health Checker。它使用您的 ONTAP 集群的当前配置数据生成现场升级计划和报告。
 
-但是，需要访问互联网才能自动更新工具。如果您的环境缺乏互联网连接，请联系 NetApp 获取有关如何确保升级运行状况检查器工具保持最新的指导。
+但是，需要访问互联网才能自动更新工具。如果您的环境缺乏互联网连接，您可以从 link:https://console.netapp.com/automationHub["NetApp Console 自动化中心"] 上的 Upgrade Health Checker 图块手动下载该工具的最新版本。
 
 
 

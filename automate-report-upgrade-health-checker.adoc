@@ -16,7 +16,7 @@ summary: 您可以自动生成升级运行状况检查器报告，以减少在�
 您可以自动生成升级运行状况检查器报告，以减少在大型复杂环境中规划 ONTAP 升级时的手动工作量。
 
 .步骤
-. 为确保成功创建升级报告，请完成 link:generate-upgrade-health-checker-report.html["生成 ONTAP 升级报告"] 中概述的所有必要设置步骤和一次性任务。
+. 为确保成功创建升级报告，请完成 link:generate-report-upgrade-health-checker.html["生成 ONTAP 升级报告"] 中概述的所有必要设置步骤和一次性任务。
 . 创建脚本以运行 Upgrade Health Checker，并为您的环境设置相应的参数。
 +
 [source, cli]
