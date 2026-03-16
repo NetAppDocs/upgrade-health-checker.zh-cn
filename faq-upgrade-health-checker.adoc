@@ -41,4 +41,4 @@ Upgrade Health Checker 是一种现场工具，适用于具有大型或复杂环
 
 == Upgrade Health Checker 支持哪些版本的 ONTAP？
 
-升级运行状况检查器支持升级到 ONTAP 9.11.1 及更高版本。
+升级运行状况检查器支持本地 ONTAP 9.11.1 及更高版本的升级。

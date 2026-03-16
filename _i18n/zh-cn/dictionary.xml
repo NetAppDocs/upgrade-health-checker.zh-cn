@@ -26,7 +26,6 @@
   <block id="a17989ff5f0962c2877477c74338ae61" category="section-title">可以在没有互联网连接的情况下使用 Upgrade Health Checker 吗？</block>
   <block id="3880fea319e437eea669686be6861626" category="paragraph">您无需互联网连接即可运行 Upgrade Health Checker。它使用您的 ONTAP 集群的当前配置数据生成现场升级计划和报告。</block>
   <block id="982d129000c1d3e533f5e8593c670b3d" category="section-title">Upgrade Health Checker 支持哪些版本的 ONTAP？</block>
-  <block id="4c8d49c7d71cf0e79e3740d7cf67dd62" category="paragraph">升级运行状况检查器支持升级到 ONTAP 9.11.1 及更高版本。</block>
   <block id="b7c89596c79e950e74638e5d75919aee" category="summary">您可以使用 Upgrade Health Checker 为单个或多个 ONTAP 集群生成升级计划。</block>
   <block id="a46b239b0ed00e39f2903761716caf03" category="doc">使用 Upgrade Health Checker 生成升级计划</block>
   <block id="e170a21083188ebc6e00ef17f5167dd7" category="inline-link-macro">自动生成升级报告</block>
@@ -57,7 +56,6 @@
   <block id="e75e96e756ff4d38a10cdee84526ca22" category="doc">了解 Upgrade Health Checker</block>
   <block id="88e9e7bdabbf15e882c2c1d5c1356ba0" category="paragraph">Upgrade Health Checker 是一种升级咨询服务工具，可提供详细信息和建议，以帮助您成功完成 ONTAP 升级。它会进行现场全面的运行状况检查，以识别在执行升级之前必须解决的障碍和警告。</block>
   <block id="aa3fb0007a6e493d6ff6af5e4cfd6ea9" category="paragraph">升级运行状况检查器可以集成到现有的自动化和编排框架中，以帮助升级单个或多个群集。它使用您最新的 AutoSupport 数据生成详细、准确的报告，报告与您的集群相关的风险、有关您要升级到的 ONTAP 版本中新功能和增强功能的信息，以及在尝试 ONTAP 升级之前需要采取的任何操作。</block>
-  <block id="e7a7f914c2fd76fa002667ce774516e8" category="paragraph">要了解有关 Upgrade Health Checker 的详细信息，请参见 <block ref="6a92c3eccbf08c1bc6caa0a6e92c02bb" category="inline-link-macro-rx"></block>。</block>
   <block id="30d965eef5ba25c6b9998ae38270b43e" category="doc">法律声明</block>
   <block id="e9c44bbfd795a5d63d74c6a77afee70d" category="paragraph">法律声明提供对版权声明、商标、专利等信息的访问。</block>
   <block id="6016a2b341113bf496b719905398ecd2" category="section-title">版权</block>
@@ -80,7 +78,6 @@
   <block id="ce2d4be7e0d93c8b156f834ce3704614" category="doc">下载并设置 Upgrade Health Checker</block>
   <block id="55dcd8cbc9d164986479594db66fd89e" category="paragraph">使用以下规范为 Upgrade Health Checker 设置虚拟机：</block>
   <block id="cf0860ffd4dc1929d768f74d92735b75" category="list-text">处理和内存：m5.large VM 或同等产品，具有 2 个 vCPU 和 8 GiB RAM。</block>
-  <block id="c7ca991550b74c4fb5521603081f476c" category="list-text">推荐的操作系统：Ubuntu 22.04，以实现最佳兼容性。</block>
   <block id="28a03eb4af7c5f6abf99620ada6c6cfb" category="list-text">存储：提供至少 100 GB 的根卷和至少 100 GB 的额外 NFS 卷，以确保在虚拟机受损时保留数据。</block>
   <block id="492b15c109a51daa9f89630b4f2bb303" category="list-text">托管要求：将 VM 放置在具有集群连接和互联网访问的位置，以允许自动工具更新。机器应通过 HTTPS 访问以下端点以执行自动更新：</block>
   <block id="072b499eacb5befcbdab2d6cc0fe02a0" category="list-text"><block ref="072b499eacb5befcbdab2d6cc0fe02a0" category="inline-link-rx"></block></block>
@@ -101,7 +98,6 @@
   <block id="9f58de4245b2fb930c02c3766a7ff23f" category="list-text">配置 ONTAP 集群访问的服务帐户和角色。对于通过 Upgrade Health Checker 进行的集群访问，请将服务角色创建为 REST 角色。</block>
   <block id="15ec8997d97cf2ca0a22a65e524b2811" category="admonition">您可以构建 Ansible 剧本，以自动将角色和用户部署到所有 ONTAP 集群。</block>
   <block id="d9e228dba301308afb2b46a1a951b363" category="paragraph">您必须为 http 应用程序创建服务帐户。使用以下 CLI 命令配置必要的权限：</block>
-  <block id="c8bb94969a3153538fe3ed12d5ad5c4f" category="list-text">设置凭据管理以保护对应用程序的访问。</block>
   <block id="034a1ea726a7fbf3e2fc72fde8ed680d" category="paragraph">例如，如果您有 CyberArk 和 Conjur，则可以配置环境以避免通过 yaml 文件或命令行传递凭据。</block>
   <block id="f2f2f12c645a941c4c701a0ad14f78da" category="list-text">创建所需的 CyberArk 保险箱：</block>
   <block id="6fecc57bc25e97c77bad1c6d06e7153d" category="list-text">创建保存应用程序凭据和机密的 Safe（Main-Conjur-Safe）</block>
@@ -232,4 +228,14 @@
   <block id="d8f8bff1a4b83b3c4aa6b4284a2e39c2" category="section-title">2026 年 2 月 13 日</block>
   <block id="f245d5b92eabff0d1c1d1e41530987d0" category="list-text">为确保成功创建升级报告，请完成 <block ref="6489edbb98d22789fa797cea6950f9bd" category="inline-link-macro-rx"></block> 中概述的所有必要设置步骤和一次性任务。</block>
   <block id="4a5a50ece5ac2f055b9ecb1ac0f449f2" category="paragraph">但是，需要访问互联网才能自动更新工具。如果您的环境缺乏互联网连接，您可以从 <block ref="886a64ecc1d4032be9eb5d1da893e684" category="inline-link-macro-rx"></block> 上的 Upgrade Health Checker 图块手动下载该工具的最新版本。</block>
+  <block id="bbe48fb854ea022537208eeeff822f91" category="paragraph-title">关于此任务</block>
+  <block id="3a3843b2672bd389702bef2d50b13ac2" category="inline-link-macro">升级 Cloud Volumes ONTAP</block>
+  <block id="fbea9b709f9869db351058e2990a8978" category="paragraph">升级运行状况检查器支持本地 ONTAP 版本 9.11.1 及更高版本的升级。如果使用的是 Cloud Volumes ONTAP，请参阅 <block ref="28b2d523b3cffe11b9614de34794e1ab" category="inline-link-macro-rx"></block> 以了解有关升级系统的信息。</block>
+  <block id="d2c961c08b2b0c36adb33c10963a0eb6" category="paragraph">升级运行状况检查器支持本地 ONTAP 9.11.1 及更高版本的升级。</block>
+  <block id="bef81ef7170eb4c509a54d4673a85016" category="paragraph">要了解有关 Upgrade Health Checker 的详细信息，请参阅 <block ref="6a92c3eccbf08c1bc6caa0a6e92c02bb" category="inline-link-macro-rx"></block> 或观看以下介绍视频。</block>
+  <block id="c2aacd91b1737e52a658e8a6f26cab08" category="list-text">推荐操作系统：任何使用 glibc 库 2.28 或更高版本的 Linux 操作系统，以实现最佳兼容性。这包括：</block>
+  <block id="e5051949dc3a37f9077e85df0f1c8a21" category="list-text">Ubuntu 22.04</block>
+  <block id="131e01e2ecbd7de2f9b3f16afa129bcd" category="list-text">RHEL8</block>
+  <block id="100147deec73dd6ee82e8d75ab8b4981" category="list-text">RHEL9</block>
+  <block id="3d814f055016b0a5f8d3fd580ea0225d" category="list-text">（可选）设置凭据管理以保护对应用程序的访问。</block>
 </blocks>
