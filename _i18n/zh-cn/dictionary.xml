@@ -10,10 +10,8 @@
   <block id="a16591c11e618548314d95d8cb9f466c" category="paragraph">Cron 作业：</block>
   <block id="4a419eed497d5a9cc6325bd677912447" category="list-text">升级运行状况检查器完成检查后，导航到 <block ref="878983117a2370e5b702db49786da067" prefix=" " category="inline-code"></block> 文件夹以查看升级计划和集群报告。</block>
   <block id="e634565f95b1012e8b64a5e25f71b4d2" category="admonition">程序的每次执行都是唯一的运行，将在关联的 <block ref="878983117a2370e5b702db49786da067" prefix=" " category="inline-code"></block> 文件夹中包含所有相关数据、日志和结果。</block>
-  <block id="f02cb42b34717f58312e87a6c6a3f0b7" category="list-text">在 Web 浏览器中打开报告文件（已命名<block ref="bc3548bedd723b0ffedd796c759eafb1" prefix=" " category="inline-code"></block>）以查看报告。如果在远程主机上运行 Upgrade Health Checker，请先将报告文件下载到可以在 Web 浏览器上查看的计算机。</block>
   <block id="4e37054133b8a9e3c2adbe0fdc102c34" category="paragraph">日志路径和报告路径如下：</block>
   <block id="d4f180313d0c382395fb5552082544bf" category="list-text">日志路径：<block ref="056716fdc8e198679abe9b3946c631cf" prefix=" " category="inline-code"></block></block>
-  <block id="63c8b5222d1ee8d79de6660da3eaef50" category="list-text">报告路径：<block ref="42dfa52dc698f1548746e65dadae2dba" prefix=" " category="inline-code"></block></block>
   <block id="848fb46d80fa326851b061b6dfad66be" category="summary">升级运行状况检查器的常见问题 (FAQ)。</block>
   <block id="2a4d8488d929be6bef9bc441b32078c7" category="doc">升级运行状况检查器的常见问题</block>
   <block id="9f4e75bee30b521f1814643b0bd0dc50" category="section-title">Upgrade Health Checker 与 Upgrade Advisor 有何不同？</block>
@@ -39,8 +37,6 @@
   <block id="a6af1159f5885cc5683819f03f5eba4c" category="paragraph">全面检查确保托管 Upgrade Health Checker 的虚拟机具有：</block>
   <block id="d333aef011149b38d807ae69b77df0db" category="list-text">通过 HTTPS 连接到 ONTAP 集群 IP 地址</block>
   <block id="d41d8cd98f00b204e9800998ecf8427e" category="inline-link"></block>
-  <block id="1bda50643710bdee88e5f7b89ecfce86" category="list-text">通过 HTTPS 连接到遥测端点<block ref="dff1129755a63688cdc5de28dfe608ad" category="inline-link-rx"></block>）</block>
-  <block id="684e35b64e667ed5386392f6bc72425b" category="list-text">通过 HTTPS 连接到自动更新端点<block ref="7b0c3a92f481d16df4dd5efff5f61700" category="inline-link-rx"></block>和<block ref="75a282c90668bc1468d683bacd2cabd2" category="inline-link-rx"></block>）</block>
   <block id="7694967e044dd1d2923b0cea4e472179" category="list-text">至少 4 GB 的可用<block ref="d42b9c57d24cf5db3bd8d332dc35437f" prefix=" " category="inline-code"></block>空间</block>
   <block id="727e26a3103d69ba9d982a7013910355" category="list-text">（可选）如果要使用配置文件存储参数，请将位于下载二进制文件相同位置的 <block ref="1010e3344617b31dd1b22e5cb7bd6833" prefix=" " category="inline-code"></block> 文件重命名为 <block ref="259fe82e12a866f01123927480c7851b" prefix=" " category="inline-code"></block>。</block>
   <block id="ea20ff07be154a6d361686df025bbc38" category="paragraph">以下是示例 config.yaml 文件：</block>
@@ -51,7 +47,6 @@
   <block id="06bf55f53800587243aa18867ccc9b0c" category="paragraph">Input Parameters Guide 还提供了有关指定自定义配置文件路径和运行路径以简化工作流程的信息。最佳做法是为每个群集创建一个自定义输出目录，以有效地组织报告和日志。</block>
   <block id="bef31ea9ddf34bff75792f2fff0d5cbc" category="list-text">通过接受 EULA 并输入目标 ONTAP 版本和任何其他参数，运行升级运行状况检查器。</block>
   <block id="d35e5d5961dfaa8f5243866aeef147f3" category="admonition">程序的每次执行都是"唯一运行"，将在关联的 <block ref="878983117a2370e5b702db49786da067" prefix=" " category="inline-code"></block> 文件夹中包含所有相关数据、日志和结果。</block>
-  <block id="08e04af94bbf61d680a4a44d4edb4111" category="list-text">在 Web 浏览器中打开报告文件（已命名<block ref="bc3548bedd723b0ffedd796c759eafb1" prefix=" " category="inline-code"></block>）以查看报告。如果您在远程主机上运行它，请先将报告文件下载到可以在 Web 浏览器上查看报告的计算机。</block>
   <block id="4b88cca218b188588aa2a452e46894da" category="summary">升级运行状况检查器是一种升级咨询服务工具，可提供详细信息和建议，以帮助您成功完成 ONTAP 升级。</block>
   <block id="e75e96e756ff4d38a10cdee84526ca22" category="doc">了解 Upgrade Health Checker</block>
   <block id="88e9e7bdabbf15e882c2c1d5c1356ba0" category="paragraph">Upgrade Health Checker 是一种升级咨询服务工具，可提供详细信息和建议，以帮助您成功完成 ONTAP 升级。它会进行现场全面的运行状况检查，以识别在执行升级之前必须解决的障碍和警告。</block>
@@ -79,12 +74,10 @@
   <block id="55dcd8cbc9d164986479594db66fd89e" category="paragraph">使用以下规范为 Upgrade Health Checker 设置虚拟机：</block>
   <block id="cf0860ffd4dc1929d768f74d92735b75" category="list-text">处理和内存：m5.large VM 或同等产品，具有 2 个 vCPU 和 8 GiB RAM。</block>
   <block id="28a03eb4af7c5f6abf99620ada6c6cfb" category="list-text">存储：提供至少 100 GB 的根卷和至少 100 GB 的额外 NFS 卷，以确保在虚拟机受损时保留数据。</block>
-  <block id="492b15c109a51daa9f89630b4f2bb303" category="list-text">托管要求：将 VM 放置在具有集群连接和互联网访问的位置，以允许自动工具更新。机器应通过 HTTPS 访问以下端点以执行自动更新：</block>
   <block id="072b499eacb5befcbdab2d6cc0fe02a0" category="list-text"><block ref="072b499eacb5befcbdab2d6cc0fe02a0" category="inline-link-rx"></block></block>
   <block id="53fb0fc7c544c164b74ed43fbccd4384" category="list-text"><block ref="53fb0fc7c544c164b74ed43fbccd4384" category="inline-link-rx"></block></block>
   <block id="907609b93268ffb2d43f03dae5c950a3" category="paragraph">如果无法访问互联网，请咨询 NetApp 以获取指导。</block>
   <block id="ad9d14ce6f324c6a7d87f50e2b156ad7" category="list-text">推荐的软件包：安装 Web 服务器以方便访问。</block>
-  <block id="222fc917ceda606917084c949d4918ba" category="paragraph">此外，请确保虚拟机可以通过 HTTPS 连接到遥测端点<block ref="dff1129755a63688cdc5de28dfe608ad" category="inline-link-rx"></block>），以便 NetApp 接收有关您的升级计划的 AutoSupport 信息。</block>
   <block id="513157ecd257a5ac15a2bf664400f97e" category="inline-link-macro">导航到 NetApp Console 自动化中心</block>
   <block id="f7516c48eeea343f7fff7d7edbe475e0" category="list-text">通过 <block ref="d29e77f401a63487e90236d789082319" category="inline-link-macro-rx"></block> 下载 Upgrade Health Checker 二进制文件并找到 Upgrade Health Checker 磁贴。</block>
   <block id="516fc188e817bb3cd710620ace1129a5" category="list-text">设置 Upgrade Health Checker 虚拟机并使用 SSH 将二进制文件放置在您选择的位置。</block>
@@ -238,4 +231,21 @@
   <block id="131e01e2ecbd7de2f9b3f16afa129bcd" category="list-text">RHEL8</block>
   <block id="100147deec73dd6ee82e8d75ab8b4981" category="list-text">RHEL9</block>
   <block id="3d814f055016b0a5f8d3fd580ea0225d" category="list-text">（可选）设置凭据管理以保护对应用程序的访问。</block>
+  <block id="bd4dd8e5ccbd7fbe54cf123a8e868745" category="list-text">在 Web 浏览器、Microsoft Excel 或 JSON 查看器中打开报告文件（已命名<block ref="781e82a34e84af3b11fccec6b813c654" prefix=" " category="inline-code"></block>）以查看报告。如果在远程主机上运行 Upgrade Health Checker，请先将报告文件下载到计算机，在那里可以在 Web 浏览器、Excel 或 JSON 查看器中查看报告。</block>
+  <block id="e1b8614301d7bec3825b94f88f799128" category="list-text">HTML 报告路径：<block ref="42dfa52dc698f1548746e65dadae2dba" prefix=" " category="inline-code"></block></block>
+  <block id="38fda984a0c5a847814d8f79ebf27b47" category="list-text">Excel 报告路径：<block ref="b579a006aab9674bb4b5ee8bdc1dc5a8" prefix=" " category="inline-code"></block></block>
+  <block id="82e19305023b5eb3613e715db77f833c" category="list-text">JSON 报告路径：<block ref="fa32c5a3f7d651976fb4d5ab4d04b0b0" prefix=" " category="inline-code"></block></block>
+  <block id="6dd1c9daa4dc12fc30a473b455c79963" category="list-text">通过 HTTPS 连接到遥测端点<block ref="dff1129755a63688cdc5de28dfe608ad" category="inline-link-rx"></block>和<block ref="b6e65db6bdd125b2fca849ddf715a294" category="inline-link-rx"></block>）</block>
+  <block id="2337a5c21840ff98faafc2454e42e258" category="list-text">通过 HTTPS (443) 连接到自动更新端点 <block ref="7b0c3a92f481d16df4dd5efff5f61700" category="inline-link-rx"></block>、<block ref="75a282c90668bc1468d683bacd2cabd2" category="inline-link-rx"></block> 和 <block ref="b6e65db6bdd125b2fca849ddf715a294" category="inline-link-rx"></block>)</block>
+  <block id="c9222608750e8dc2e14567da95cc5574" category="list-text">在 Web 浏览器、Microsoft Excel 或 JSON 查看器中打开报告文件（已命名<block ref="781e82a34e84af3b11fccec6b813c654" prefix=" " category="inline-code"></block>）以查看报告。如果您在远程主机上运行它，请先将报告文件下载到计算机上，在那里您可以在 Web 浏览器、Excel 或 JSON 查看器中查看报告。</block>
+  <block id="23f77c02d4b9cce31928ac38c3a2b6f9" category="list-text">托管要求：将 VM 放置在具有集群连接和互联网访问的位置，以允许自动工具更新。机器应通过 HTTPS (443) 访问以下端点以执行自动更新：</block>
+  <block id="1e149c7d9ce6dc9e42acefe98045ece8" category="list-text"><block ref="1e149c7d9ce6dc9e42acefe98045ece8" category="inline-link-rx"></block></block>
+  <block id="d100bb5092fa91acd1332279f9e39144" category="paragraph">此外，请确保虚拟机可以连接到遥测端点 <block ref="dff1129755a63688cdc5de28dfe608ad" category="inline-link-rx"></block> 和<block ref="b6e65db6bdd125b2fca849ddf715a294" category="inline-link-rx"></block>）通过 HTTPS 以启用 NetApp 接收有关升级计划的 AutoSupport 信息。</block>
+  <block id="ef442759af12bb34136648bc4519a80c" category="section-title">2026 年 4 月 15 日</block>
+  <block id="46f2cb9a84a7af28bc6cd48700cc9900" category="paragraph">此升级运行状况检查器文档更新包含以下功能。</block>
+  <block id="ad88b0b80ee104829693617a9bf958bd" category="list-text">UHC 需要访问新端点 <block ref="7284fbd648a23f7bd89ffe1d29d304e6" category="inline-link-rx"></block>）才能使自动更新功能正常工作。</block>
+  <block id="e1a2132b8b37788de7f02a2417b9fb84" category="paragraph"><block ref="818545cfdb8752d4fd7459b5cbb30ef7" category="inline-link-macro-rx"></block>。</block>
+  <block id="b729a38666412b046926504f8c6e0c22" category="list-text">UHC 现在提供了新的报告格式（.XLSX - 人工可编辑），补充了 HTML（人工可读）和 JSON（机器可读）格式。</block>
+  <block id="28644c8986780297cc12f67e6e53c6e9" category="paragraph"><block ref="6489edbb98d22789fa797cea6950f9bd" category="inline-link-macro-rx"></block>。</block>
+  <block id="188972059fe3b72a4a06d5b2f9a9f5e8" category="paragraph"><block ref="2351634b2585980a03146a4b76c86b91" category="inline-link-macro-rx"></block>。</block>
 </blocks>

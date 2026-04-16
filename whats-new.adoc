@@ -17,6 +17,25 @@ summary: 了解此文档站点的新增功能。
 
 
 
+== 2026 年 4 月 15 日
+
+此升级运行状况检查器文档更新包含以下功能。
+
+* UHC 需要访问新端点 (https://api.activeiq.netapp.com[]）才能使自动更新功能正常工作。
++
+link:set-up-upgrade-health-checker.html["下载并设置 Upgrade Health Checker"]。
+
+* UHC 现在提供了新的报告格式（.XLSX - 人工可编辑），补充了 HTML（人工可读）和 JSON（机器可读）格式。
++
+link:generate-report-upgrade-health-checker.html["生成 ONTAP 升级报告"]。
+
++
+link:automate-report-upgrade-health-checker.html["使用 Upgrade Health Checker 自动生成升级计划"]。
+
+
+
+
+
 == 2026 年 2 月 13 日
 
 Upgrade Health Checker 为生成全面的现场报告提供了一种新的解决方案，使您能够成功完成 ONTAP 升级。它可以与现有的自动化和编排框架一起使用，以在升级单个或多个集群时提高效率。Upgrade Health Checker 支持升级到 ONTAP 9.11.1 及更高版本。

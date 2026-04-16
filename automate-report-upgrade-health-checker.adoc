@@ -58,13 +58,15 @@ Cron 作业：
 
 NOTE: 程序的每次执行都是唯一的运行，将在关联的  `runs` 文件夹中包含所有相关数据、日志和结果。
 
-. 在 Web 浏览器中打开报告文件（已命名 `uhc_<cluster-name>_<YYYYMMDDHHMMSS>.html`）以查看报告。如果在远程主机上运行 Upgrade Health Checker，请先将报告文件下载到可以在 Web 浏览器上查看的计算机。
+. 在 Web 浏览器、Microsoft Excel 或 JSON 查看器中打开报告文件（已命名 `uhc_<cluster-name>_<YYYYMMDDHHMMSS>`）以查看报告。如果在远程主机上运行 Upgrade Health Checker，请先将报告文件下载到计算机，在那里可以在 Web 浏览器、Excel 或 JSON 查看器中查看报告。
 +
 日志路径和报告路径如下：
 
 +
 ** 日志路径： `<output-path>/<unique-run-dir>/<cluster-name>/logs`
-** 报告路径： `<output-path>/<unique-run-dir>/<cluster-name>/results/uhc_<cluster-name>_<YYYYMMDDHHMMSS>.html`
+** HTML 报告路径： `<output-path>/<unique-run-dir>/<cluster-name>/results/uhc_<cluster-name>_<YYYYMMDDHHMMSS>.html`
+** Excel 报告路径： `<output-path>/<unique-run-dir>/<cluster-name>/results/uhc_<cluster-name>_<YYYYMMDDHHMMSS>.xlsx`
+** JSON 报告路径： `<output-path>/<unique-run-dir>/<cluster-name>/results/uhc_<cluster-name>_<YYYYMMDDHHMMSS>.json`
 
 
 
