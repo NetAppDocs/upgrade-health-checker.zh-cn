@@ -21,5 +21,7 @@ indexpage:
     links:
     - title: 了解 Upgrade Health Checker 的输入参数
       url: upgrade-health-checker-input-parameters.html
+    - title: 使用 NetApp Lab on Demand 开始使用升级运行状况检查器
+      url: https://community.netapp.com/t5/Tech-ONTAP-Blogs/Getting-Started-with-Upgrade-Health-Checker-Using-NetApp-Lab-on-Demand/ba-p/466818
     - title: 升级运行状况检查器的常见问题
       url: faq-upgrade-health-checker.html
