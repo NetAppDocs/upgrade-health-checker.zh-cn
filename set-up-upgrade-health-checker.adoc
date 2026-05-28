@@ -32,9 +32,9 @@ summary: 您可以下载 Upgrade Health Checker 来生成现场综合报告，�
 * 存储：提供至少 100 GB 的根卷和至少 100 GB 的额外 NFS 卷，以确保在虚拟机受损时保留数据。
 * 托管要求：将 VM 放置在具有集群连接和互联网访问的位置，以允许自动工具更新。机器应通过 HTTPS (443) 访问以下端点以执行自动更新：
 +
-** https://api.uhc.netapp.com[]
-** https://gql.aiq.netapp.com[]
-** https://api.activeiq.netapp.com[]
+** +https://api.uhc.netapp.com+
+** +https://gql.aiq.netapp.com+
+** +https://api.activeiq.netapp.com+
 +
 如果无法访问互联网，请咨询 NetApp 以获取指导。
 
@@ -43,7 +43,7 @@ summary: 您可以下载 Upgrade Health Checker 来生成现场综合报告，�
 * 推荐的软件包：安装 Web 服务器以方便访问。
 
 
-此外，请确保虚拟机可以连接到遥测端点 (https://support.netapp.com/[] 和 https://api.activeiq.netapp.com[]）通过 HTTPS 以启用 NetApp 接收有关升级计划的 AutoSupport 信息。
+此外，确保虚拟机可以通过 HTTPS 连接到遥测端点（+https://support.netapp.com+/ 和 +https://api.activeiq.netapp.com+），以便 NetApp 接收有关您升级计划的 AutoSupport 信息。
 
 .步骤
 . 通过 link:https://console.netapp.com/automationHub["导航到 NetApp Console 自动化中心"] 下载 Upgrade Health Checker 二进制文件并找到 Upgrade Health Checker 磁贴。

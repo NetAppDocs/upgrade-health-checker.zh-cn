@@ -21,7 +21,7 @@ summary: 了解此文档站点的新增功能。
 
 此升级运行状况检查器文档更新包含以下功能。
 
-* UHC 需要访问新端点 (https://api.activeiq.netapp.com[]）才能使自动更新功能正常工作。
+* UHC 需要访问新的端点（+https://api.activeiq.netapp.com+），以便自动更新功能正常工作。
 +
 link:set-up-upgrade-health-checker.html["下载并设置 Upgrade Health Checker"]。
 
