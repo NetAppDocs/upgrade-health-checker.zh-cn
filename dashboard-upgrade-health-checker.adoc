@@ -1,0 +1,51 @@
+---
+sidebar: sidebar 
+permalink: dashboard-upgrade-health-checker.html 
+keywords: upgrade, health, checker, dashboard, for upgrade health checker 
+summary: 升级运行状况检查器的仪表板。 
+---
+= 升级运行状况检查器仪表板
+:hardbreaks:
+:allow-uri-read: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+每次运行 Upgrade Health Checker 结束时，都会在 `runs/dashboard/index.html`生成一个静态 HTML 仪表板。该仪表板提供最近评估的集群运行状况的高级概述，使您可以监控和比较各集群的升级准备情况。
+
+要稍后重新生成仪表板（无需联系集群），请运行：
+
+[listing]
+----
+./uhc --dashboard
+./uhc --dashboard --runs-path /custom/output
+./uhc --dashboard --config-path /path/to/custom_config.yaml
+----
+以下是最近生成的 Upgrade Health Checker 仪表板的视图。image:../media/dashboard3.gif[""]
+
+页面顶端有五个颜色编码的摘要卡片（每个也是一个可选的过滤器），显示：
+
+* *已准备好升级：* 最新运行状况检查未发现任何阻止程序的集群数量，即已准备好升级。
+* *已阻止：*在解决阻止因素之前被阻止且无法升级的集群数量。
+* *错误：* 其最新 UHC 运行未能完成的集群数量（例如连接、身份验证或数据收集失败）。
+* *过时（>7）：* 上次 UHC 运行超过 7 天的集群数量（健康检查数据已过时）。
+* *Fleet total：* 车队中的集群总数（在控制面板窗口中运行的集群，默认为过去 30 天）。
+
+
+Fleet 概览部分详细介绍了 Fleet 的当前状态。对于每个集群，提供以下内容（下表显示每个集群的最新运行情况）：
+
+* *集群名称：* 集群名称（其管理 IP 显示在名称下方）。
+* *状态：* 集群的当前状态：就绪、已阻止、错误或过期。
+* *阻塞程序：*集群上的阻塞程序数量。这些是升级前必须解决的关键问题。
+* *有风险：*集群上有风险发现的数量。这些是在更新前检查期间确定的风险。
+* *警告：* 集群上的警告数量。更新前检查已完成，但出现了一些警告；您可以选择修复这些警告或继续进行更新。
+* *跳过：* 在集群上跳过的检查数。
+* *目标版本：* 用户打算升级到的 ONTAP 版本。（如果只想在运行的版本上运行运行状况检查，则它可以与当前版本相同。）
+* *节点：*集群的节点，每个节点显示为节点名称及其硬件模型（例如 eurbkpcla (FAS8200)）。
+* *报告：* 可用于运行的报告格式：HTML、JSON、Excel、Log。
+* *上次运行：* 上次运行 Upgrade Health Checker 的日期和时间（相对值为"X 天前"）。
+
+
+您可以选择 *Reload* 以刷新页面。使用 *Search* 栏搜索特定集群的详细信息。

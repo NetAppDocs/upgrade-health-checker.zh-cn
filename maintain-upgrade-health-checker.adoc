@@ -1,0 +1,54 @@
+---
+sidebar: sidebar 
+permalink: maintain-upgrade-health-checker.html 
+keywords: upgrade, health, checker, maintain, maintenance tasks, 
+summary: Upgrade Health Checker 的维护任务。 
+---
+= 维护升级运行状况检查器
+:hardbreaks:
+:allow-uri-read: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+通过定期检查更新、监视日志以发现任何重复出现的问题，并确保已针对您的环境正确配置该工具，来维护升级运行状况检查器。这确保了工具可靠、高效地运行。如果您遇到新问题或需要进一步帮助，请参见 NetApp 支持资源或联系 NetApp 支持人员。
+
+
+
+== /tmp 空间管理
+
+升级运行状况检查器在执行期间将其组件提取到  `/tmp` 目录中。如果您遇到与  `/tmp` 中空间不足相关的问题，请考虑以下事项：
+
+* 检查  `/tmp` 中的可用空间，确保至少有 4 GB 的可用空间供工具有效运行。
+* 从 `/tmp`中删除任何不必要的文件以释放空间。
+
+
+
+
+== 运行目录清理
+
+Upgrade Health Checker 为每个执行创建一个唯一的运行目录，其中包含日志和结果。若要管理磁盘空间，请配置自动清理过程，以便在一段时间（例如 30 天）后删除旧的运行目录。
+
+[listing]
+----
+# Delete UHC data older than 30 days (recommended for automated workflows)
+find /mnt/nfs/uhc/runs -type d -mtime +30 -exec rm -rf {} + 2>/dev/null
+
+# Schedule as a weekly cron job
+0 3 * * 0 find /mnt/nfs/uhc/runs -type d -mtime +30 -exec rm -rf {} + 2>/dev/null
+----
+
+
+== 自动更新
+
+升级运行状况检查器会在每次运行后自动检查更新，当互联网连接可用时。这可确保您拥有最新的功能、改进和错误修复。如果无法访问互联网，您可以从 link:https://console.netapp.com/automationHub["NetApp Console 自动化中心"^] 手动下载最新版本。
+
+要禁用自动更新，请将以下内容添加到  `config.yaml` 文件中：
+
+[listing]
+----
+AUTO_UPDATE:
+  ENABLED: false
+----

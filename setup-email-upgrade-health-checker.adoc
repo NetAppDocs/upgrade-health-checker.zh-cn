@@ -1,0 +1,117 @@
+---
+sidebar: sidebar 
+permalink: setup-email-upgrade-health-checker.html 
+keywords: upgrade, health, checker 
+summary: 您可以设置电子邮件以接收 Upgrade Health Checker 报告。 
+---
+= 通过电子邮件接收升级运行状况检查器报告
+:hardbreaks:
+:allow-uri-read: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+您可以将电子邮件集成到 Upgrade Health Checker 中，以便在收件箱中接收报告。您可以通过 config.yaml 文件或命令行参数启用此功能。启用后，Upgrade Health Checker 使用 SMTP 服务器将生成的报告（HTML、Excel 或 JSON）发送到一个或多个配置的收件人。禁用该功能时，不会发送任何报告。如果报告生成失败并且启用了电子邮件，则将日志文件发送到配置的收件人。
+
+
+
+== 使用 config.yaml 文件进行配置
+
+. 在 config.yaml 文件中启用电子邮件报告。
++
+[listing]
+----
+# Email Report Configuration
+EMAIL:
+  ENABLED: true
+----
+. 提供 SMTP 配置设置以及发件人详细信息和主题：
++
+[listing]
+----
+# SMTP Server Configuration
+EMAIL:
+  ENABLED: true
+  FROM: "uhc-notify@example.com"
+  SUBJECT: "UHC Upgrade Health Report"
+  REPLY_TO: <email>
+  SMTP:
+    HOST: "smtp.example.com"
+    PORT: [<port-number>]
+----
+. 提供收件人电子邮件地址，并配置通过电子邮件发送的报告格式，例如 HTML、EXCEL、JSON、ALL：
++
+[listing]
+----
+# Recipient Email Addresses, report formats
+EMAIL:
+  ENABLED: true
+  TO: <recipient>
+  FROM: "uhc-notify@example.com"
+  SUBJECT: "UHC Upgrade Health Report"
+  REPLY_TO: <email>
+  RECIPIENTS: "user1@example.com, user2@example.com"
+  REPORT_FORMATS: "HTML,EXCEL,JSON"   # valid values: HTML, EXCEL, JSON or ALL
+  SMTP:
+    HOST: "smtp.example.com"
+    PORT: [PORT]
+----
+
+
+
+
+== 使用命令行参数配置
+
+. 使用命令行参数启用电子邮件报告：
++
+[listing]
+----
+./uhc --email-enabled=true
+----
+. 提供收件人电子邮件地址：
++
+[listing]
+----
+./uhc --email-recipients="user1@example.com, user2@example.com"
+----
+. 配置通过电子邮件发送的报告格式，例如 HTML、EXCEL、JSON：
++
+[listing]
+----
+./uhc --email-report-formats=HTML,EXCEL,JSON
+----
+
+
+[NOTE]
+====
+可以使用命令行参数和 config.yaml 文件配置以下三个属性；其余属性只能在 config.yaml 文件中配置：
+
+* 电子邮件已启用
+* 电子邮件收件人
+* 电子邮件报告格式
+
+
+请注意，如果提供了命令行参数，它们将覆盖 config.yaml 文件值。
+
+例如：
+
+[listing]
+----
+./uhc \
+  --email-enabled=true
+  --email-recipients="user1@example.com, user2@example.com" \
+  --email-report-formats=HTML,EXCEL,JSON \
+----
+[listing]
+----
+EMAIL:
+  FROM: "uhc-notify@example.com"
+  SUBJECT: "UHC Upgrade Health Report"
+  REPLY_TO: <email>
+  SMTP:
+    HOST: "smtp.example.com"
+    PORT: [PORT]
+----
+====

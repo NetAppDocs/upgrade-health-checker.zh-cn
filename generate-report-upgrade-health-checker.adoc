@@ -95,6 +95,10 @@ Input Parameters Guide 还提供了有关指定自定义配置文件路径和运
 
 NOTE: 程序的每次执行都是"唯一运行"，将在关联的  `runs` 文件夹中包含所有相关数据、日志和结果。
 
+. 列出生成的报告文件：
++
+`ls -lrt`
+
 . 在 Web 浏览器、Microsoft Excel 或 JSON 查看器中打开报告文件（已命名 `uhc_<cluster-name>_<YYYYMMDDHHMMSS>`）以查看报告。如果您在远程主机上运行它，请先将报告文件下载到计算机上，在那里您可以在 Web 浏览器、Excel 或 JSON 查看器中查看报告。
 +
 日志路径和报告路径如下：
@@ -107,3 +111,6 @@ NOTE: 程序的每次执行都是"唯一运行"，将在关联的  `runs` 文件
 
 
 
+
+.下一步
+生成升级计划和集群报告后，可以查看 link:dashboard-upgrade-health-checker.html["升级运行状况检查器仪表板"] 以了解在运行期间评估的集群运行状况的详细信息。

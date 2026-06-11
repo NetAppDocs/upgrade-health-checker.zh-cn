@@ -21,15 +21,25 @@ sidebar:
       url: "/learn-about-upgrade-health-checker.html"
     - title: 设置 Upgrade Health Checker
       url: "/set-up-upgrade-health-checker.html"
+    - title: 升级运行状况检查器的输入参数
+      url: "/upgrade-health-checker-input-parameters.html"
   - title: 使用 Upgrade Health Checker
     entries:
     - title: 生成 ONTAP 升级报告
       url: "/generate-report-upgrade-health-checker.html"
+    - title: 升级运行状况检查器仪表板
+      url: "/dashboard-upgrade-health-checker.html"
     - title: 自动生成报告
       url: "/automate-report-upgrade-health-checker.html"
-  - title: 升级运行状况检查器的输入参数
-    url: "/upgrade-health-checker-input-parameters.html"
-  - title: 常见问题解答
-    url: "/faq-upgrade-health-checker.html"
+    - title: 设置通过电子邮件接收报告
+      url: "/setup-email-upgrade-health-checker.html"
+  - title: 维护、故障排除、常见问题解答
+    entries:
+    - title: 维护
+      url: "/maintain-upgrade-health-checker.html"
+    - title: 故障排除
+      url: "/troubleshoot-upgrade-health-checker.html"
+    - title: 常见问题解答
+      url: "/faq-upgrade-health-checker.html"
   - title: 法律声明
     url: "/legal-notices.html"

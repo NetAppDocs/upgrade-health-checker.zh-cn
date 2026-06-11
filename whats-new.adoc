@@ -1,5 +1,5 @@
 ---
-sidebar: sidebar 
+sidebar: sidebarU 
 permalink: whats-new.html 
 keywords: upgrade, health, checker, whats new, release, notes 
 summary: 了解此文档站点的新增功能。 
@@ -13,7 +13,39 @@ summary: 了解此文档站点的新增功能。
 
 
 [role="lead"]
-了解 Upgrade Health Checker 中的新增功能。您可以通过导航到 link:https://console.netapp.com/automationHub["NetApp Console 自动化中心"^] 中的 Upgrade Health Checker 图块并查看最新的 Upgrade Health Checker 下载文件来找到其他增强功能信息。
+了解升级运行状况检查器 (UHC) 的新增功能。您可以导航到 link:https://console.netapp.com/automationHub["NetApp Console 自动化中心"^] 中的升级运行状况检查器图块并查看最新的升级运行状况检查器下载文件，以查找其他增强功能信息。
+
+
+
+== 2026 年 6 月 11 日
+
+此升级运行状况检查器文档更新包含以下功能。
+
+* UHC 支持将报告直接发送到您的收件箱。
++
+link:setup-email-upgrade-health-checker.html["通过电子邮件接收升级运行状况检查器报告"].
+
+* 介绍了  `--dashboard` 参数，该参数可在  `<runs>/dashboard/index.html` 不联系集群的情况下从现有运行中重新生成仪表板。它提供了最近访问的所有集群的健康状态的高级概述。
++
+link:dashboard-upgrade-health-checker.html["升级运行状况检查器仪表板"], link:upgrade-health-checker-input-parameters.html#dashboard["信息板参数"].
+
+* 介绍一个新的维护、故障排除和常见问题部分。
++
+** 通过定期检查更新、监视日志以发现任何反复出现的问题，并确保工具已针对您的环境进行了正确配置，从而维护 Upgrade Health Checker。
++
+link:maintain-upgrade-health-checker.html["维护升级运行状况检查器"].
+
+** 解决常见的升级运行状况检查器问题，并解决可能阻止 ONTAP 升级计划的错误。
++
+link:troubleshoot-upgrade-health-checker.html["升级运行状况检查器疑难解答"].
+
+** 升级运行状况检查器的常见问题 (FAQ)。
++
+link:faq-upgrade-health-checker.html["升级运行状况检查器的常见问题"].
+
+
+
+
 
 
 

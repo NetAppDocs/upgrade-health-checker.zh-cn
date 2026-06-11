@@ -1,0 +1,316 @@
+---
+sidebar: sidebar 
+permalink: troubleshoot-upgrade-health-checker.html 
+keywords: upgrade, health, checker, troubleshoot, issues, errors, ontap 
+summary: 升级运行状况检查器故障排除：ONTAP 升级的常见问题、错误和解决方案。 
+---
+= 升级运行状况检查器疑难解答
+:hardbreaks:
+:allow-uri-read: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+了解如何解决常见的升级运行状况检查器问题并解决可能阻止 ONTAP 升级计划的错误。
+
+
+
+== 故障排除问题
+
+{empty} + {empty}
+
+
+
+=== 问题：身份验证或凭据错误
+
+*症状：*
+
+[listing]
+----
+Failed to fetch cluster details for <cluster-ip>
+Error connecting to ONTAP cluster: 401 Unauthorized
+Missing cluster credentials
+----
+这些错误表示 Upgrade Health Checker 无法使用提供的凭据向 ONTAP 集群进行身份验证。这可能是由于用户名或密码不正确、用户帐户权限不足或帐户被锁定或禁用所致。
+
+*解决方案：*
+
+* 验证用户名和密码是否正确
+* 确保用户具有足够的 ONTAP REST API 权限
+* 检查帐户是否锁定或禁用
+
+
+[listing]
+----
+./uhc --test-connectivity cluster
+----
+{empty} + {empty}
+
+
+
+=== 问题：自动更新失败
+
+*症状：*
+
+[listing]
+----
+Auto-update failed: ...
+Failed to download update
+----
+这些错误表示 Upgrade Health Checker 无法连接到互联网以检查或下载更新。这可能是由于网络连接问题、防火墙规则阻止访问或代理设置配置不正确造成的。
+
+*解决方案：*
+
+* 检查互联网连接：
+
+
+[listing]
+----
+./uhc --test-connectivity autoupdate
+----
+* 检查磁盘空间（需要 1 GB）：
+
+
+[listing]
+----
+df -h <location of uhc>
+----
+{empty} {empty}
+
+
+
+=== 问题：二进制文件需要很长时间才能启动
+
+*原因：* 二进制文件是自包含的，需要在执行前自行解包。
+
+*预期行为：* 首次执行可能需要几秒钟才能加载。这很正常。{empty} + {empty} + {empty}
+
+
+
+=== 问题：/tmp 上的"权限被拒绝"或"无法执行二进制文件"
+
+*症状：*
+
+[listing]
+----
+[Errno 13] Permission denied
+OSError: [Errno 13] Permission denied: '/tmp/_MEI...'
+Cannot execute binary file
+----
+当工具无法在  `/tmp` 目录中执行文件时，可能会发生此错误，该目录用于提取和运行工具的组件。这可能是由于对  `/tmp` 目录的限制性权限或阻止从此位置执行的安全策略造成的。
+
+*解决方案：*
+
+. 检查  `/tmp` 是否已启用  `noexec`：
+
+
+[listing]
+----
+mount | grep /tmp
+# If you see noexec in the output, this is the issue.
+----
+. [[step2]] 重新挂载 `/tmp`与 `exec`（需要系统管理员 root 权限）：
+
+
+[listing]
+----
+# Temporary fix
+sudo mount -o remount,exec /tmp
+# Permanent fix - edit /etc/fstab
+# Change "noexec" to "exec" for /tmp mount point
+----
+. [[step3]] 如果由于限制而无法执行上一步，您可以将该工具配置为使用具有适当权限的替代临时目录：
+
+
+[listing]
+----
+mkdir -p /custom-tmp-path
+# This only needs to be done one time.
+TMPDIR=/custom-tmp-path ./uhc
+# The TMPDIR prefix has to be added every time.
+----
+
+NOTE: 要使此解决方法有效，必须首先存在自定义路径。如果它不存在，则不会创建并回退到使用 `/tmp`。
+
+. [[step4]] 调整权限或更改临时目录后，请尝试再次运行该工具，以查看问题是否已解决。+
+
+
+
+
+=== 问题：连接超时
+
+*症状：*
+
+[listing]
+----
+Connection timeout
+Request timeout
+----
+*解决方案：*
+
+* 检查与集群的网络连接
+* 确认没有防火墙阻止 HTTPS (443) 流量
+* 检查集群是否具有响应性且未承受重负荷 +
+
+
+
+
+=== 问题：磁盘空间不足
+
+*症状：*
+
+[listing]
+----
+Not enough disk space available
+OSError: [Errno 28] No space left on device
+----
+*解决方案：*
+
+* 检查磁盘空间：
+
+
+[listing]
+----
+df -h /tmp
+df -h .
+----
+* 清除旧运行：
+
+
+[listing]
+----
+# Remove old run directories
+rm -rf runs/<old_run_directories>
+----
+* 清理临时文件：
+
+
+[listing]
+----
+# Remove temporary files
+rm -rf /tmp/_MEI*
+----
+{empty} + {empty}
+
+
+
+=== 问题：无效的运行路径
+
+*症状：*
+
+[listing]
+----
+Invalid basepath_runs: <error>
+RUNS path is not set
+Cannot create tarball: basepath_runs '<path>' does not exist
+----
+*解决方案：*
+
+* 确保运行输出目录存在且可写
+* 通过 CLI 指定有效路径： `--runs-path /valid/path`
+* 在 config.yaml 中配置： `APP.RUNS_PATH: "/valid/path"` +
+
+
+
+
+=== 问题：目标 ONTAP 版本无效
+
+*症状：*
+
+[listing]
+----
+Invalid ONTAP version: '<version>' does not exist
+Invalid ONTAP version: '<version>' is not a recognized ONTAP version
+Downgrade is not supported. Target version must be greater than or equal to the current version.
+----
+*解决方案：*
+
+* 确认目标版本字符串格式（例如"9.16.1"）
+* 确保目标版本高于或等于当前集群版本
+* 使用 "current" 保留现有 ONTAP 版本： `--target-ontap-version=current` +
+
+
+
+
+=== 问题：签名验证失败
+
+*症状：*
+
+[listing]
+----
+Signature verification failed
+Invalid code signature
+----
+*原因：*下载的更新文件可能已损坏或已被篡改。
+
+*解决方案：*
+
+* 手动更新 - 从 NetApp 支持站点下载
+* 手动验证签名：
++
+[listing]
+----
+openssl dgst -sha256 -verify UHC-Linux-public.pub -signature uhc.sig uhc
+----
++
+{empty} + {empty}
+
+
+
+
+
+=== 问题：遥测上传失败
+
+*症状：*
+
+[listing]
+----
+body.7z upload failed
+Telemetry endpoint is not reachable
+----
+*解决方案：*
+
+* 检查与遥测端点的连接：
+
+
+[listing]
+----
+./uhc --test-connectivity telemetry
+----
+{empty} + {empty}
+
+
+
+=== 问题："UPDATE IN PROGRESS" 锁定文件
+
+*症状：*
+
+[]
+====
+正在进行更新
+
+当前正在运行另一个 UHC 自动更新实例。请等待更新完成，然后再次运行。
+
+====
+*原因：* 锁定文件存在于之前的更新过程中。
+
+*解决方案：*
+
+. *等待：* 更新通常在 1-2 分钟内完成。
+. *如果陈旧，请检查：*（1 小时后自动清理）：
+
+
+[listing]
+----
+ls -la uhc_update.lock
+# If older than 1 hour, it will be auto-cleaned
+----
+. [[step3]] *手动清理，如有必要：*
+
+
+[listing]
+----
+rm uhc_update.lock
+----

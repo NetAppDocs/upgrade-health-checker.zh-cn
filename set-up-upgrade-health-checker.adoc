@@ -21,32 +21,49 @@ summary: 您可以下载 Upgrade Health Checker 来生成现场综合报告，�
 .开始之前
 使用以下规范为 Upgrade Health Checker 设置虚拟机：
 
-* 处理和内存：m5.large VM 或同等产品，具有 2 个 vCPU 和 8 GiB RAM。
-* 推荐操作系统：任何使用 glibc 库 2.28 或更高版本的 Linux 操作系统，以实现最佳兼容性。这包括：
-+
-** Ubuntu 22.04
-** RHEL8
-** RHEL9
+|===
+| 组件 | 规格 
 
 
-* 存储：提供至少 100 GB 的根卷和至少 100 GB 的额外 NFS 卷，以确保在虚拟机受损时保留数据。
-* 托管要求：将 VM 放置在具有集群连接和互联网访问的位置，以允许自动工具更新。机器应通过 HTTPS (443) 访问以下端点以执行自动更新：
-+
-** +https://api.uhc.netapp.com+
-** +https://gql.aiq.netapp.com+
-** +https://api.activeiq.netapp.com+
-+
-如果无法访问互联网，请咨询 NetApp 以获取指导。
+ a| 
+*VM*
+| m5.large VM 或同等产品，带 2 个 vCPU 和 8 GiB RAM 
 
 
+ a| 
+*操作系统*
+| 任何带有 glibc 库版本 2.28 或更高版本的 Linux 操作系统（Ubuntu 22.04、RHEL8 或 RHEL9） 
 
-* 推荐的软件包：安装 Web 服务器以方便访问。
+
+ a| 
+*磁盘空间*
+| 至少有 4 GB 可用空间（建议 8 GB）在 `/tmp`中并具有执行权限 
 
 
-此外，确保虚拟机可以通过 HTTPS 连接到遥测端点（+https://support.netapp.com+/ 和 +https://api.activeiq.netapp.com+），以便 NetApp 接收有关您升级计划的 AutoSupport 信息。
+ a| 
+*网络*
+| 与 ONTAP 集群管理 LIF 的 HTTPS 连接 
+
+
+ a| 
+*ONTAP 版本*
+| 运行 ONTAP 9.11.1 或更高版本的集群 
+
+
+ a| 
+*托管要求*
+| 将虚拟机放置在具有群集连接和互联网访问的位置，以允许自动工具更新。计算机应通过 HTTPS (443) 访问以下端点，以执行自动更新并启用 NetApp 接收有关升级计划的 AutoSupport 信息： https://support.netapp.com/[] https://api.uhc.netapp.com[] https://gql.aiq.netapp.com[] https://api.activeiq.netapp.com[] 
+
+
+ a| 
+*推荐软件包*
+| 安装 Web 服务器以方便访问 
+|===
+
+NOTE: 确保虚拟机可以通过 HTTPS (443) 连接到自动更新和遥测端点（(https://support.netapp.com/[] 和  https://api.activeiq.netapp.com[]），以启用 NetApp 接收有关升级计划的 AutoSupport 信息。如果互联网访问不可用，您必须手动下载最新版本的 Upgrade Health Checker。
 
 .步骤
-. 通过 link:https://console.netapp.com/automationHub["导航到 NetApp Console 自动化中心"] 下载 Upgrade Health Checker 二进制文件并找到 Upgrade Health Checker 磁贴。
+. 导航到 link:https://console.netapp.com/automationHub["NetApp Console 自动化中心"^] 并找到 Upgrade Health Checker 磁贴，下载 Upgrade Health Checker 二进制文件。
 . 设置 Upgrade Health Checker 虚拟机并使用 SSH 将二进制文件放置在您选择的位置。
 . 验证 Upgrade Health Checker 的数字签名。
 +
@@ -85,7 +102,7 @@ openssl dgst -sha256 -verify UHC-Linux-public.pub -signature uhc.sig uhc
 NOTE: 您可以构建 Ansible 剧本，以自动将角色和用户部署到所有 ONTAP 集群。
 
 +
-您必须为 http 应用程序创建服务帐户。使用以下 CLI 命令配置必要的权限：
+必须为 HTTP 应用程序创建服务帐户。使用以下 CLI 命令配置必要的权限：
 
 +
 [source, cli]
@@ -156,6 +173,10 @@ conjur_password: "{{ lookup('cyberark.conjur.conjur_variable', 'prodvault/devops
 ----
 
 
+
+
+.相关信息
+* link:upgrade-health-checker-input-parameters.html["了解 Upgrade Health Checker 的输入参数"]
 
 
 .下一步是什么？

@@ -31,29 +31,50 @@ summary: 您可以自动生成升级运行状况检查器报告，以减少在�
   --target-ontap-version=<target-ontap-version> \
   --accept-eula=true
 ----
-+
-以下是一个 cronjob 示例，该作业在周一至周五凌晨 4 点运行该工具。binary 和 config.yaml 文件已安装到 /opt/uhc/tool/ 中。
-
-+
-Bash 脚本：
-
+. 创建 cron 计划的自动化脚本以运行 Upgrade Health Checker。以下示例脚本为多个集群运行 Upgrade Health Checker。binary 和 config.yaml 文件已安装到 /opt/uhc/tool/ 中。
 +
 [listing]
 ----
 #!/bin/bash
-cd /opt/uhc/tool
-/opt/uhc/tool/uhc --accept-eula true --cluster-ip cluster-mgmt1.example.com --target-ontap-version current --cluster-username uhctool --cluster-password passw0rd
-/opt/uhc/tool/uhc --accept-eula true --cluster-ip cluster-mgmt2.example.com --target-ontap-version 9.14.1 --cluster-username uhctool --cluster-password passw0rd
-----
-+
-Cron 作业：
+# /opt/uhc/tool/uhccron.sh
+# Automated weekly Upgrade Health Checker run for all managed clusters
+# Schedule: Every Monday to Friday at 4am
 
+cd /opt/uhc/tool/
+
+# Cluster1 - keep current version (health check only)
+/opt/uhc/tool/uhc --cluster-ip cluster1-mgmt.example.com \ --target-ontap-version current
+
+# Cluster2 - target upgrade to 9.16.1
+/opt/uhc/tool/uhc --cluster-ip cluster2-mgmt.example.com \ --target-ontap-version 9.16.1
+
+# Cluster3 - target upgrade to 9.17.1
+/opt/uhc/tool/uhc --cluster-ip cluster3-mgmt.example.com \ --target-ontap-version 9.17.1
+
+# Cluster4 - by IP address
+/opt/uhc/tool/uhc --cluster-ip 10.20.30.40 --target-ontap-version 9.16.1
+
+# Add additional clusters as needed
+
+# Make the script executable (one-time setup step)
+chmod +x /opt/uhc/tool/uhccron.sh
+----
+. 设置 cron 作业以在周一至周五凌晨 4:00 运行脚本：
 +
 [listing]
 ----
-0 4 * * 1-5 /usr/local/bin/uhccron.sh
+# Edit the crontab for the uhctool user
+crontab -e
+
+# Add the following line to schedule the script to run Monday through Friday at 4:00 am
+0 4 * * 1-5 /opt/uhc/tool/uhccron.sh
 ----
-. 升级运行状况检查器完成检查后，导航到  `runs` 文件夹以查看升级计划和集群报告。
+
+
+
+NOTE: 对于持续运行状况监控，请使用 `--target-ontap-version current`而无需特定的升级目标。
+
+. [[step5]] 升级运行状况检查器完成检查后，导航到  `runs` 文件夹以查看升级计划和群集报告。
 +
 
 NOTE: 程序的每次执行都是唯一的运行，将在关联的  `runs` 文件夹中包含所有相关数据、日志和结果。

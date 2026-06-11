@@ -300,6 +300,29 @@ CLUSTER:
 ====
 
 
+=== 信息板
+
+该 `--dashboard`参数从 `<runs>/dashboard/index.html`中的现有运行重新生成仪表板，而无需联系集群。您可以使用它在正常运行之外刷新车队视图。仪表板提供最近评估的所有集群运行状况的高级概览，使您可以轻松地监控和比较多个集群在一个地方的升级就绪情况。您可以在 Web 浏览器中打开仪表板，一目了然地查看每个集群的运行状况、潜在拦截因素和风险。
+
+* CLI 参数： `--dashboard`
+
+
+.示例
+[%collapsible]
+====
+* CLI 参数：
++
+[listing]
+----
+./uhc --dashboard
+./uhc --dashboard --runs-path /custom/output
+./uhc --dashboard --config-path /path/to/custom_config.yaml
+----
+
+
+====
+
+
 === 禁用遥测
 
 要禁用遥测，请将以下内容添加到  `config.yaml` 文件：

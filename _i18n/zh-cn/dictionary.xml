@@ -5,9 +5,6 @@
   <block id="f3a29486bed19a90f2da6d007818b427" category="list-title">步骤</block>
   <block id="bb4632cd1e5a77d2d2a6ad9870b1edf3" category="inline-link-macro">生成 ONTAP 升级报告</block>
   <block id="7c3f7cf7c460927ff3a0856e45060529" category="list-text">创建脚本以运行 Upgrade Health Checker，并为您的环境设置相应的参数。</block>
-  <block id="4a2fc7904851b98a582cefc5576f3c0b" category="paragraph">以下是一个 cronjob 示例，该作业在周一至周五凌晨 4 点运行该工具。binary 和 config.yaml 文件已安装到 /opt/uhc/tool/ 中。</block>
-  <block id="af6a390b44e1466e540d2c134316ae89" category="paragraph">Bash 脚本：</block>
-  <block id="a16591c11e618548314d95d8cb9f466c" category="paragraph">Cron 作业：</block>
   <block id="4a419eed497d5a9cc6325bd677912447" category="list-text">升级运行状况检查器完成检查后，导航到 <block ref="878983117a2370e5b702db49786da067" prefix=" " category="inline-code"></block> 文件夹以查看升级计划和集群报告。</block>
   <block id="e634565f95b1012e8b64a5e25f71b4d2" category="admonition">程序的每次执行都是唯一的运行，将在关联的 <block ref="878983117a2370e5b702db49786da067" prefix=" " category="inline-code"></block> 文件夹中包含所有相关数据、日志和结果。</block>
   <block id="4e37054133b8a9e3c2adbe0fdc102c34" category="paragraph">日志路径和报告路径如下：</block>
@@ -72,12 +69,6 @@
   <block id="b9497e3cda04aa10a25628bf0b021f6a" category="summary">您可以下载 Upgrade Health Checker 来生成现场综合报告，然后再升级到较新版本的 ONTAP。</block>
   <block id="ce2d4be7e0d93c8b156f834ce3704614" category="doc">下载并设置 Upgrade Health Checker</block>
   <block id="55dcd8cbc9d164986479594db66fd89e" category="paragraph">使用以下规范为 Upgrade Health Checker 设置虚拟机：</block>
-  <block id="cf0860ffd4dc1929d768f74d92735b75" category="list-text">处理和内存：m5.large VM 或同等产品，具有 2 个 vCPU 和 8 GiB RAM。</block>
-  <block id="28a03eb4af7c5f6abf99620ada6c6cfb" category="list-text">存储：提供至少 100 GB 的根卷和至少 100 GB 的额外 NFS 卷，以确保在虚拟机受损时保留数据。</block>
-  <block id="907609b93268ffb2d43f03dae5c950a3" category="paragraph">如果无法访问互联网，请咨询 NetApp 以获取指导。</block>
-  <block id="ad9d14ce6f324c6a7d87f50e2b156ad7" category="list-text">推荐的软件包：安装 Web 服务器以方便访问。</block>
-  <block id="513157ecd257a5ac15a2bf664400f97e" category="inline-link-macro">导航到 NetApp Console 自动化中心</block>
-  <block id="f7516c48eeea343f7fff7d7edbe475e0" category="list-text">通过 <block ref="d29e77f401a63487e90236d789082319" category="inline-link-macro-rx"></block> 下载 Upgrade Health Checker 二进制文件并找到 Upgrade Health Checker 磁贴。</block>
   <block id="516fc188e817bb3cd710620ace1129a5" category="list-text">设置 Upgrade Health Checker 虚拟机并使用 SSH 将二进制文件放置在您选择的位置。</block>
   <block id="0243c7349a37a636f0d08348fc2b1ba7" category="list-text">验证 Upgrade Health Checker 的数字签名。</block>
   <block id="2093f13abbe3f1a90a7519a3aba24859" category="paragraph">Upgrade Health Checker 具有公共代码签名证书 <block ref="a1b0111e4810b200f4d7ad5020792ba6" prefix="(" category="inline-code"></block>) 以及中级和根证书链 <block ref="2cad9a6c3ca1368f7d8a3bdcbf540946" prefix="(" category="inline-code"></block>)。</block>
@@ -88,7 +79,6 @@
   <block id="94a2cf0aa74e751f770d9240dcbcb074" category="paragraph"><block ref="33a9cc0739a5a17f65e28cf0b260007f" prefix=" " category="inline-code"></block> 的输出确认签名有效。</block>
   <block id="9f58de4245b2fb930c02c3766a7ff23f" category="list-text">配置 ONTAP 集群访问的服务帐户和角色。对于通过 Upgrade Health Checker 进行的集群访问，请将服务角色创建为 REST 角色。</block>
   <block id="15ec8997d97cf2ca0a22a65e524b2811" category="admonition">您可以构建 Ansible 剧本，以自动将角色和用户部署到所有 ONTAP 集群。</block>
-  <block id="d9e228dba301308afb2b46a1a951b363" category="paragraph">您必须为 http 应用程序创建服务帐户。使用以下 CLI 命令配置必要的权限：</block>
   <block id="034a1ea726a7fbf3e2fc72fde8ed680d" category="paragraph">例如，如果您有 CyberArk 和 Conjur，则可以配置环境以避免通过 yaml 文件或命令行传递凭据。</block>
   <block id="f2f2f12c645a941c4c701a0ad14f78da" category="list-text">创建所需的 CyberArk 保险箱：</block>
   <block id="6fecc57bc25e97c77bad1c6d06e7153d" category="list-text">创建保存应用程序凭据和机密的 Safe（Main-Conjur-Safe）</block>
@@ -201,7 +191,6 @@
   <block id="daad4dadeda8cd86f01c8ad7f2a30465" category="summary">了解此文档站点的新增功能。</block>
   <block id="a8324b80938b67ec782deb0221494038" category="doc">Upgrade Health Checker 的新增功能</block>
   <block id="984ed907e956f5ada3f813bd4a802fd2" category="inline-link-macro">NetApp Console 自动化中心</block>
-  <block id="28418efc88b69f5e65f0a85f816e9eea" category="paragraph">了解 Upgrade Health Checker 中的新增功能。您可以通过导航到 <block ref="40053797cfb8864b5eaa5f1f6f7991c2" category="inline-link-macro-rx"></block> 中的 Upgrade Health Checker 图块并查看最新的 Upgrade Health Checker 下载文件来找到其他增强功能信息。</block>
   <block id="ae47874d4e80f14ff840114a5af1558e" category="paragraph">Upgrade Health Checker 为生成全面的现场报告提供了一种新的解决方案，使您能够成功完成 ONTAP 升级。它可以与现有的自动化和编排框架一起使用，以在升级单个或多个集群时提高效率。Upgrade Health Checker 支持升级到 ONTAP 9.11.1 及更高版本。</block>
   <block id="ba6d627457ce6f12fac3776c3f84b9f5" category="inline-link-macro">详细了解 Upgrade Health Checker</block>
   <block id="c2da3472d13132f746797e82ab607214" category="paragraph"><block ref="311172ef496e6974c00a808505e30585" category="inline-link-macro-rx"></block>。</block>
@@ -224,17 +213,12 @@
   <block id="fbea9b709f9869db351058e2990a8978" category="paragraph">升级运行状况检查器支持本地 ONTAP 版本 9.11.1 及更高版本的升级。如果使用的是 Cloud Volumes ONTAP，请参阅 <block ref="28b2d523b3cffe11b9614de34794e1ab" category="inline-link-macro-rx"></block> 以了解有关升级系统的信息。</block>
   <block id="d2c961c08b2b0c36adb33c10963a0eb6" category="paragraph">升级运行状况检查器支持本地 ONTAP 9.11.1 及更高版本的升级。</block>
   <block id="bef81ef7170eb4c509a54d4673a85016" category="paragraph">要了解有关 Upgrade Health Checker 的详细信息，请参阅 <block ref="6a92c3eccbf08c1bc6caa0a6e92c02bb" category="inline-link-macro-rx"></block> 或观看以下介绍视频。</block>
-  <block id="c2aacd91b1737e52a658e8a6f26cab08" category="list-text">推荐操作系统：任何使用 glibc 库 2.28 或更高版本的 Linux 操作系统，以实现最佳兼容性。这包括：</block>
-  <block id="e5051949dc3a37f9077e85df0f1c8a21" category="list-text">Ubuntu 22.04</block>
-  <block id="131e01e2ecbd7de2f9b3f16afa129bcd" category="list-text">RHEL8</block>
-  <block id="100147deec73dd6ee82e8d75ab8b4981" category="list-text">RHEL9</block>
   <block id="3d814f055016b0a5f8d3fd580ea0225d" category="list-text">（可选）设置凭据管理以保护对应用程序的访问。</block>
   <block id="bd4dd8e5ccbd7fbe54cf123a8e868745" category="list-text">在 Web 浏览器、Microsoft Excel 或 JSON 查看器中打开报告文件（已命名<block ref="781e82a34e84af3b11fccec6b813c654" prefix=" " category="inline-code"></block>）以查看报告。如果在远程主机上运行 Upgrade Health Checker，请先将报告文件下载到计算机，在那里可以在 Web 浏览器、Excel 或 JSON 查看器中查看报告。</block>
   <block id="e1b8614301d7bec3825b94f88f799128" category="list-text">HTML 报告路径：<block ref="42dfa52dc698f1548746e65dadae2dba" prefix=" " category="inline-code"></block></block>
   <block id="38fda984a0c5a847814d8f79ebf27b47" category="list-text">Excel 报告路径：<block ref="b579a006aab9674bb4b5ee8bdc1dc5a8" prefix=" " category="inline-code"></block></block>
   <block id="82e19305023b5eb3613e715db77f833c" category="list-text">JSON 报告路径：<block ref="fa32c5a3f7d651976fb4d5ab4d04b0b0" prefix=" " category="inline-code"></block></block>
   <block id="c9222608750e8dc2e14567da95cc5574" category="list-text">在 Web 浏览器、Microsoft Excel 或 JSON 查看器中打开报告文件（已命名<block ref="781e82a34e84af3b11fccec6b813c654" prefix=" " category="inline-code"></block>）以查看报告。如果您在远程主机上运行它，请先将报告文件下载到计算机上，在那里您可以在 Web 浏览器、Excel 或 JSON 查看器中查看报告。</block>
-  <block id="23f77c02d4b9cce31928ac38c3a2b6f9" category="list-text">托管要求：将 VM 放置在具有集群连接和互联网访问的位置，以允许自动工具更新。机器应通过 HTTPS (443) 访问以下端点以执行自动更新：</block>
   <block id="ef442759af12bb34136648bc4519a80c" category="section-title">2026 年 4 月 15 日</block>
   <block id="46f2cb9a84a7af28bc6cd48700cc9900" category="paragraph">此升级运行状况检查器文档更新包含以下功能。</block>
   <block id="e1a2132b8b37788de7f02a2417b9fb84" category="paragraph"><block ref="818545cfdb8752d4fd7459b5cbb30ef7" category="inline-link-macro-rx"></block>。</block>
@@ -244,9 +228,164 @@
   <block id="14bcc4201c40840cb4def541b49a3f32" category="sidebar">使用 NetApp Lab on Demand 开始使用升级运行状况检查器</block>
   <block id="9878135fc061d82ca23d024a73b70f17" category="list-text">通过 HTTPS 连接到遥测端点（+https://support.netapp.com+ 和 +https://api.activeiq.netapp.com+）</block>
   <block id="8e902ec9dc6816d99e16bdee4a2eed46" category="list-text">通过 HTTPS (443) 连接到自动更新端点（+https://api.uhc.netapp.com+、+https://gql.aiq.netapp.com+ 和 +https://api.activeiq.netapp.com+）</block>
-  <block id="6004dfc86627bd24fdacdda35ddd16c3" category="list-text">+https://api.uhc.netapp.com+</block>
-  <block id="375ac624794a2a89bd6c16e9b07a6656" category="list-text">+https://gql.aiq.netapp.com+</block>
-  <block id="0cf9833b48d6a8ca87c343c5a45e4e84" category="list-text">+https://api.activeiq.netapp.com+</block>
-  <block id="527e62c9953c2bebba6b642861ac2fd8" category="paragraph">此外，确保虚拟机可以通过 HTTPS 连接到遥测端点（+https://support.netapp.com+/ 和 +https://api.activeiq.netapp.com+），以便 NetApp 接收有关您升级计划的 AutoSupport 信息。</block>
   <block id="7da7d55bf35c61004edeb6d3b68a9970" category="list-text">UHC 需要访问新的端点（+https://api.activeiq.netapp.com+），以便自动更新功能正常工作。</block>
+  <block id="fb87b83f5a1f10d68c8aae574e593e92" category="list-text">创建 cron 计划的自动化脚本以运行 Upgrade Health Checker。以下示例脚本为多个集群运行 Upgrade Health Checker。binary 和 config.yaml 文件已安装到 /opt/uhc/tool/ 中。</block>
+  <block id="896d9c07e1c3a1231ece824cc9567062" category="list-text">设置 cron 作业以在周一至周五凌晨 4:00 运行脚本：</block>
+  <block id="ace9e20908f5ac61a1cd07a6d3d60c0f" category="admonition">对于持续运行状况监控，请使用<block ref="bfb43d575663966ac38a26eb4b47410c" prefix=" " category="inline-code"></block>而无需特定的升级目标。</block>
+  <block id="2e9f002d0057390dc4b674ce8a3d800e" category="list-text">[[step5]] 升级运行状况检查器完成检查后，导航到 <block ref="878983117a2370e5b702db49786da067" prefix=" " category="inline-code"></block> 文件夹以查看升级计划和群集报告。</block>
+  <block id="551f07047fdf0d517a22dcfe3312964b" category="summary">升级运行状况检查器的仪表板。</block>
+  <block id="3e8ecbbf11e529936f5698c3a5fd6a06" category="doc">升级运行状况检查器仪表板</block>
+  <block id="9b465946a9dc97d12d820bd8415f008d" category="paragraph">每次运行 Upgrade Health Checker 结束时，都会在<block ref="eb97244a50f154dcafcd27d6257f80cf" prefix=" " category="inline-code"></block>生成一个静态 HTML 仪表板。该仪表板提供最近评估的集群运行状况的高级概述，使您可以监控和比较各集群的升级准备情况。</block>
+  <block id="bafc7ab120beca2fc58036fe47bfc092" category="paragraph">要稍后重新生成仪表板（无需联系集群），请运行：</block>
+  <block id="7215ee9c7d9dc229d2921a40e899ec5f" category="inline-image-macro"></block>
+  <block id="edff9c28ee07f5cc07a47836188c2686" category="paragraph">以下是最近生成的 Upgrade Health Checker 仪表板的视图。<block ref="a123d0eb24a591f100df7a50344ada33" category="inline-image-macro-rx" type="image"></block></block>
+  <block id="630394c315fe49ad9045e4158725c3fe" category="paragraph">页面顶端有五个颜色编码的摘要卡片（每个也是一个可选的过滤器），显示：</block>
+  <block id="a075fa4490303d9c1443c75b2736e30d" category="list-text">*已准备好升级：* 最新运行状况检查未发现任何阻止程序的集群数量，即已准备好升级。</block>
+  <block id="3f1f632cd20c57889809ec5bf6ab7bbb" category="list-text">*已阻止：*在解决阻止因素之前被阻止且无法升级的集群数量。</block>
+  <block id="3a6e25b520b3f5881d96f081ff198a81" category="list-text">*错误：* 其最新 UHC 运行未能完成的集群数量（例如连接、身份验证或数据收集失败）。</block>
+  <block id="e54508d96af4ea3751d27501025a3451" category="list-text">*过时（&gt;7）：* 上次 UHC 运行超过 7 天的集群数量（健康检查数据已过时）。</block>
+  <block id="24f22c56e97444ad026c4cfac69a442c" category="list-text">*Fleet total：* 车队中的集群总数（在控制面板窗口中运行的集群，默认为过去 30 天）。</block>
+  <block id="0c65a78b237129936578fe5da1dfe40a" category="paragraph">Fleet 概览部分详细介绍了 Fleet 的当前状态。对于每个集群，提供以下内容（下表显示每个集群的最新运行情况）：</block>
+  <block id="f5d710cbf53ca529c4a7d62a7de34951" category="list-text">*集群名称：* 集群名称（其管理 IP 显示在名称下方）。</block>
+  <block id="cb32135fa3dab6723b15b6df0c91f5db" category="list-text">*状态：* 集群的当前状态：就绪、已阻止、错误或过期。</block>
+  <block id="028ea4296bad1dbdc86179219fecf652" category="list-text">*阻塞程序：*集群上的阻塞程序数量。这些是升级前必须解决的关键问题。</block>
+  <block id="01b1c997fbe376bbd6d7a2968b6ac6d7" category="list-text">*有风险：*集群上有风险发现的数量。这些是在更新前检查期间确定的风险。</block>
+  <block id="35f0e468ccf12525527d16a473d74d80" category="list-text">*警告：* 集群上的警告数量。更新前检查已完成，但出现了一些警告；您可以选择修复这些警告或继续进行更新。</block>
+  <block id="7b75e7fa2e407d7fef084f1fe6283795" category="list-text">*跳过：* 在集群上跳过的检查数。</block>
+  <block id="7f4617478438df00d0d45aa69514596a" category="list-text">*目标版本：* 用户打算升级到的 ONTAP 版本。（如果只想在运行的版本上运行运行状况检查，则它可以与当前版本相同。）</block>
+  <block id="0fcf67e865e3049ade1666cadb12abbc" category="list-text">*节点：*集群的节点，每个节点显示为节点名称及其硬件模型（例如 eurbkpcla (FAS8200)）。</block>
+  <block id="a319f39dbc6923a205daf0321183a106" category="list-text">*报告：* 可用于运行的报告格式：HTML、JSON、Excel、Log。</block>
+  <block id="9ef3ab67f95cc83071b8f0d04aa74267" category="list-text">*上次运行：* 上次运行 Upgrade Health Checker 的日期和时间（相对值为"X 天前"）。</block>
+  <block id="2ff94ba52e8ff2610f4d806fd7e21e3f" category="paragraph">您可以选择 *Reload* 以刷新页面。使用 *Search* 栏搜索特定集群的详细信息。</block>
+  <block id="426256c0b300d1b909c9960a8b4f4502" category="list-text">列出生成的报告文件：</block>
+  <block id="d4e68006aa10a272ac99f5258e04bce0" category="paragraph"><block ref="337ca2600c5aac5c10555f8d39e9a1d6" prefix="" category="inline-code"></block></block>
+  <block id="01e12de62fa77fda2815719aed8ff892" category="paragraph-title">下一步</block>
+  <block id="d21267b32d0903f82a079081555c0ff2" category="paragraph">生成升级计划和集群报告后，可以查看 <block ref="cb5987a19cc29bdff093adf9e3c49ecc" category="inline-link-macro-rx"></block> 以了解在运行期间评估的集群运行状况的详细信息。</block>
+  <block id="ded140dc9fd3fca8297ae91b7e9d1724" category="summary">Upgrade Health Checker 的维护任务。</block>
+  <block id="ecbaa4ec2fe853662f425db1a8a36e9c" category="doc">维护升级运行状况检查器</block>
+  <block id="cf59700fb6f14790204513a841b1810e" category="paragraph">通过定期检查更新、监视日志以发现任何重复出现的问题，并确保已针对您的环境正确配置该工具，来维护升级运行状况检查器。这确保了工具可靠、高效地运行。如果您遇到新问题或需要进一步帮助，请参见 NetApp 支持资源或联系 NetApp 支持人员。</block>
+  <block id="dcb646493350ef44bd676f1fd9e10df9" category="section-title">/tmp 空间管理</block>
+  <block id="cefcb82b87001c9160e27c413751194f" category="paragraph">升级运行状况检查器在执行期间将其组件提取到 <block ref="d42b9c57d24cf5db3bd8d332dc35437f" prefix=" " category="inline-code"></block> 目录中。如果您遇到与 <block ref="d42b9c57d24cf5db3bd8d332dc35437f" prefix=" " category="inline-code"></block> 中空间不足相关的问题，请考虑以下事项：</block>
+  <block id="6bfccd562c4557fb4f938fee42c0f5a5" category="list-text">检查 <block ref="d42b9c57d24cf5db3bd8d332dc35437f" prefix=" " category="inline-code"></block> 中的可用空间，确保至少有 4 GB 的可用空间供工具有效运行。</block>
+  <block id="d85f324a8e882b998ede63ba68005eb6" category="list-text">从<block ref="d42b9c57d24cf5db3bd8d332dc35437f" prefix=" " category="inline-code"></block>中删除任何不必要的文件以释放空间。</block>
+  <block id="47673696ae151be397814ee68344241c" category="section-title">运行目录清理</block>
+  <block id="cd260971d4895e521192f2714cc37c63" category="paragraph">Upgrade Health Checker 为每个执行创建一个唯一的运行目录，其中包含日志和结果。若要管理磁盘空间，请配置自动清理过程，以便在一段时间（例如 30 天）后删除旧的运行目录。</block>
+  <block id="919c77fac60e97628bf166a4aa7c1a72" category="section-title">自动更新</block>
+  <block id="29d681abeb8160231b2f25e3892eb831" category="paragraph">升级运行状况检查器会在每次运行后自动检查更新，当互联网连接可用时。这可确保您拥有最新的功能、改进和错误修复。如果无法访问互联网，您可以从 <block ref="40053797cfb8864b5eaa5f1f6f7991c2" category="inline-link-macro-rx"></block> 手动下载最新版本。</block>
+  <block id="f1c254c35bb2f7f754353006dc018672" category="paragraph">要禁用自动更新，请将以下内容添加到 <block ref="259fe82e12a866f01123927480c7851b" prefix=" " category="inline-code"></block> 文件中：</block>
+  <block id="2cb05e4bb7830be982f0922fed86b4cd" category="cell">组件</block>
+  <block id="875b0e30e76428bc0706b781b36b31aa" category="cell">规格</block>
+  <block id="aa6ad543d0b70e402b03f35585f4d9b4" category="paragraph">*VM*</block>
+  <block id="48fd9f67eafde4d21e1c831496b5bc31" category="cell">m5.large VM 或同等产品，带 2 个 vCPU 和 8 GiB RAM</block>
+  <block id="03c63c1d02a71129f7d335a163ab8ba3" category="paragraph">*操作系统*</block>
+  <block id="99ec8dcb0ed1c88eb9753d983a56b169" category="cell">任何带有 glibc 库版本 2.28 或更高版本的 Linux 操作系统（Ubuntu 22.04、RHEL8 或 RHEL9）</block>
+  <block id="10f7d0fe3ffe2ba74337cff47755ff6a" category="paragraph">*磁盘空间*</block>
+  <block id="6e608f5579351cbba52e3d90b1722cdb" category="cell">至少有 4 GB 可用空间（建议 8 GB）在<block ref="d42b9c57d24cf5db3bd8d332dc35437f" prefix=" " category="inline-code"></block>中并具有执行权限</block>
+  <block id="28d088a01674ea58931c1dffe64fd8b0" category="paragraph">*网络*</block>
+  <block id="74faaa8963c90dee70382e7ae7b6debe" category="cell">与 ONTAP 集群管理 LIF 的 HTTPS 连接</block>
+  <block id="176c0fe1d322d9a51e31204aad32eae6" category="paragraph">*ONTAP 版本*</block>
+  <block id="92545160fc537c4d5544686c4bcdf2e5" category="cell">运行 ONTAP 9.11.1 或更高版本的集群</block>
+  <block id="71158affd0036fb2466b1fb9e9ae37b4" category="paragraph">*托管要求*</block>
+  <block id="fffb00fef85cf67efb62289a6532ecf2" category="cell">将虚拟机放置在具有群集连接和互联网访问的位置，以允许自动工具更新。计算机应通过 HTTPS (443) 访问以下端点，以执行自动更新并启用 NetApp 接收有关升级计划的 AutoSupport 信息： <block ref="b6fcb4b13f321b8cb388d57eb2e860ab" category="inline-link-rx"></block> <block ref="072b499eacb5befcbdab2d6cc0fe02a0" category="inline-link-rx"></block> <block ref="53fb0fc7c544c164b74ed43fbccd4384" category="inline-link-rx"></block> <block ref="1e149c7d9ce6dc9e42acefe98045ece8" category="inline-link-rx"></block></block>
+  <block id="6416dbbf5267211166cfea2ed336e59e" category="paragraph">*推荐软件包*</block>
+  <block id="38f5250c3529fb3f11c0374bdaf9aeaa" category="cell">安装 Web 服务器以方便访问</block>
+  <block id="6063847442b88d203c59c2c6de6f2e53" category="admonition">确保虚拟机可以通过 HTTPS (443) 连接到自动更新和遥测端点（<block ref="dff1129755a63688cdc5de28dfe608ad" category="inline-link-rx"></block> 和 <block ref="b6e65db6bdd125b2fca849ddf715a294" category="inline-link-rx"></block>），以启用 NetApp 接收有关升级计划的 AutoSupport 信息。如果互联网访问不可用，您必须手动下载最新版本的 Upgrade Health Checker。</block>
+  <block id="fd2112d1826143e744670603b8189778" category="list-text">导航到 <block ref="40053797cfb8864b5eaa5f1f6f7991c2" category="inline-link-macro-rx"></block> 并找到 Upgrade Health Checker 磁贴，下载 Upgrade Health Checker 二进制文件。</block>
+  <block id="0028a1b2c66adc5ceda52b78a1cdb74d" category="paragraph">必须为 HTTP 应用程序创建服务帐户。使用以下 CLI 命令配置必要的权限：</block>
+  <block id="30f60d67f457bb040dffde52197a54da" category="list-title">相关信息</block>
+  <block id="075d48f32d1c61c7bc401a6884f7cf92" category="list-text"><block ref="075d48f32d1c61c7bc401a6884f7cf92" category="inline-link-macro-rx"></block></block>
+  <block id="2bc7aac0df718ec4b8d51eacce3de379" category="summary">您可以设置电子邮件以接收 Upgrade Health Checker 报告。</block>
+  <block id="403a25a6039c0e1bf716eb5582433b74" category="doc">通过电子邮件接收升级运行状况检查器报告</block>
+  <block id="860efc9b661f4d41df0b3275d4a01f9e" category="paragraph">您可以将电子邮件集成到 Upgrade Health Checker 中，以便在收件箱中接收报告。您可以通过 config.yaml 文件或命令行参数启用此功能。启用后，Upgrade Health Checker 使用 SMTP 服务器将生成的报告（HTML、Excel 或 JSON）发送到一个或多个配置的收件人。禁用该功能时，不会发送任何报告。如果报告生成失败并且启用了电子邮件，则将日志文件发送到配置的收件人。</block>
+  <block id="e152f7a0987cd387b3f0af29e5da3550" category="section-title">使用 config.yaml 文件进行配置</block>
+  <block id="7b717dfd9ad1ff92fe9062d96808c202" category="list-text">在 config.yaml 文件中启用电子邮件报告。</block>
+  <block id="a5506b391e227dfd4ee5fcf46a44f411" category="list-text">提供 SMTP 配置设置以及发件人详细信息和主题：</block>
+  <block id="dc0335c87191d92d81fca87bdb3e9a6d" category="list-text">提供收件人电子邮件地址，并配置通过电子邮件发送的报告格式，例如 HTML、EXCEL、JSON、ALL：</block>
+  <block id="becf91e5465bdb37d46d763d4aab426c" category="section-title">使用命令行参数配置</block>
+  <block id="479f67ea57ff0730833a90e8cb344675" category="list-text">使用命令行参数启用电子邮件报告：</block>
+  <block id="86687a26ed58885822822c492bb525c6" category="list-text">提供收件人电子邮件地址：</block>
+  <block id="50473cade6ce5b072ef594d97e30f293" category="list-text">配置通过电子邮件发送的报告格式，例如 HTML、EXCEL、JSON：</block>
+  <block id="6cde847387b92f199ce8915b3692ac37" category="paragraph">可以使用命令行参数和 config.yaml 文件配置以下三个属性；其余属性只能在 config.yaml 文件中配置：</block>
+  <block id="02d162bc011d2df35f8cd6f906d7d60a" category="list-text">电子邮件已启用</block>
+  <block id="f46e85a0de52240f550f9daab9d6086c" category="list-text">电子邮件收件人</block>
+  <block id="ea263adf46b6d5e874d790afd83f0987" category="list-text">电子邮件报告格式</block>
+  <block id="2b6bf35359882281e9a439e9cfcdfd7a" category="paragraph">请注意，如果提供了命令行参数，它们将覆盖 config.yaml 文件值。</block>
+  <block id="506c2c0c7f5b70af3df68c45c46f45a7" category="paragraph">例如：</block>
+  <block id="1cc4274eac4a90919037379ad302ee24" category="summary">升级运行状况检查器故障排除：ONTAP 升级的常见问题、错误和解决方案。</block>
+  <block id="33fc1d20f1d2e7e8d9ea39cc1c1e260b" category="doc">升级运行状况检查器疑难解答</block>
+  <block id="8bbf781921fc79273f7113760a28cdce" category="paragraph">了解如何解决常见的升级运行状况检查器问题并解决可能阻止 ONTAP 升级计划的错误。</block>
+  <block id="7a4e5e5bc542eae2d10e3506f839f2ae" category="section-title">故障排除问题</block>
+  <block id="d2131ff4bb2c3380d5fb369390728b83" category="paragraph">{empty} + {empty}</block>
+  <block id="ea4508c977fcb9a0e48f3ded870a27a8" category="section-title">问题：身份验证或凭据错误</block>
+  <block id="ad4a1b332ef02eba5753f8bbcb6925cb" category="paragraph">*症状：*</block>
+  <block id="8a15bd0e2ae7adaa325b7140fd8918ef" category="paragraph">这些错误表示 Upgrade Health Checker 无法使用提供的凭据向 ONTAP 集群进行身份验证。这可能是由于用户名或密码不正确、用户帐户权限不足或帐户被锁定或禁用所致。</block>
+  <block id="dee8d5233a1bf8bca6b506b1fada7ce9" category="paragraph">*解决方案：*</block>
+  <block id="00d459b7c0c08efe897940253729fe39" category="list-text">验证用户名和密码是否正确</block>
+  <block id="d52be7383d150e0b81d21613dc8c06c0" category="list-text">确保用户具有足够的 ONTAP REST API 权限</block>
+  <block id="9f566b2667cc3d86cf38f0b870985d7f" category="list-text">检查帐户是否锁定或禁用</block>
+  <block id="cfd63c7012a6be1846cea9a45dc483c9" category="section-title">问题：自动更新失败</block>
+  <block id="8c81589f2957e3aa70aecb06fd217ca8" category="paragraph">这些错误表示 Upgrade Health Checker 无法连接到互联网以检查或下载更新。这可能是由于网络连接问题、防火墙规则阻止访问或代理设置配置不正确造成的。</block>
+  <block id="ae20b15476604fe269fbce10de03e6a4" category="list-text">检查互联网连接：</block>
+  <block id="d046b10a2f8c751c23b7f911ea3773c6" category="list-text">检查磁盘空间（需要 1 GB）：</block>
+  <block id="ad898993f940021bd3ad23b42accb44e" category="paragraph">{empty} {empty}</block>
+  <block id="431c6a71d852d1ddd6e36d0967692092" category="section-title">问题：二进制文件需要很长时间才能启动</block>
+  <block id="802c6872b04f64b431e11ebba074b480" category="paragraph">*原因：* 二进制文件是自包含的，需要在执行前自行解包。</block>
+  <block id="864ce8d1a7259f74a8beb5d3625bec3a" category="paragraph">*预期行为：* 首次执行可能需要几秒钟才能加载。这很正常。{empty} + {empty} + {empty}</block>
+  <block id="fec89051f62c7e3434e266910c40b963" category="section-title">问题：/tmp 上的"权限被拒绝"或"无法执行二进制文件"</block>
+  <block id="e3df8e48656415667871afc1aa46fcc7" category="paragraph">当工具无法在 <block ref="d42b9c57d24cf5db3bd8d332dc35437f" prefix=" " category="inline-code"></block> 目录中执行文件时，可能会发生此错误，该目录用于提取和运行工具的组件。这可能是由于对 <block ref="d42b9c57d24cf5db3bd8d332dc35437f" prefix=" " category="inline-code"></block> 目录的限制性权限或阻止从此位置执行的安全策略造成的。</block>
+  <block id="be2f1b00715f445e5a837d81e93d62aa" category="list-text">检查 <block ref="d42b9c57d24cf5db3bd8d332dc35437f" prefix=" " category="inline-code"></block> 是否已启用 <block ref="5dff25754d04a3c3149f3e6f121b26d9" prefix=" " category="inline-code"></block>：</block>
+  <block id="fd4811e1fd80f374db9d4833e17a8070" category="list-text">[[step2]] 重新挂载<block ref="d42b9c57d24cf5db3bd8d332dc35437f" prefix=" " category="inline-code"></block>与<block ref="52fb3679b07eb74d90784e612ca5cb30" prefix=" " category="inline-code"></block>（需要系统管理员 root 权限）：</block>
+  <block id="f1e0220096b641cba448abe4b801e9c3" category="list-text">[[step3]] 如果由于限制而无法执行上一步，您可以将该工具配置为使用具有适当权限的替代临时目录：</block>
+  <block id="6aebcbbedc2f36d843680b1961802fd7" category="admonition">要使此解决方法有效，必须首先存在自定义路径。如果它不存在，则不会创建并回退到使用<block ref="d42b9c57d24cf5db3bd8d332dc35437f" prefix=" " category="inline-code"></block>。</block>
+  <block id="73b2df10f7b67ded6ab6cf1b86991dbf" category="list-text">[[step4]] 调整权限或更改临时目录后，请尝试再次运行该工具，以查看问题是否已解决。+</block>
+  <block id="1e884a4c2675ebfd0594c1b730de2f64" category="section-title">问题：连接超时</block>
+  <block id="9c9127499d341b7b251a98a8ef0a92e6" category="list-text">检查与集群的网络连接</block>
+  <block id="496ee7b530c0419300f81733e67066fa" category="list-text">确认没有防火墙阻止 HTTPS (443) 流量</block>
+  <block id="b8027da214d9dd9b9cb38a2128abbb32" category="list-text">检查集群是否具有响应性且未承受重负荷 +</block>
+  <block id="48e556675d42e854384e37e27ae1bd53" category="section-title">问题：磁盘空间不足</block>
+  <block id="df7a028433a6352a0525ed8745c71f02" category="list-text">检查磁盘空间：</block>
+  <block id="f38feba100e94a26947698ffb65787d0" category="list-text">清除旧运行：</block>
+  <block id="66b125a667f8595b760441dcffc2f2a6" category="list-text">清理临时文件：</block>
+  <block id="dd06ae0a4def45ac4ec706a7653b0974" category="section-title">问题：无效的运行路径</block>
+  <block id="7bfb219958b40ed65b0f654874dbf0f7" category="list-text">确保运行输出目录存在且可写</block>
+  <block id="d98b3f0d77b985709129b1f1e16a37c9" category="list-text">通过 CLI 指定有效路径：<block ref="fed3f55a42a2951d8cc17fe74f2c5c7c" prefix=" " category="inline-code"></block></block>
+  <block id="99f74f7362afe78c4b1c1bfb8fce3c78" category="list-text">在 config.yaml 中配置：<block ref="90e52bc4c2ec4e18601e845838c2d206" prefix=" " category="inline-code"></block> +</block>
+  <block id="eb29348b6dd8a887a4e448bd076a0d68" category="section-title">问题：目标 ONTAP 版本无效</block>
+  <block id="a55a0697bcad08d11e1db77706944702" category="list-text">确认目标版本字符串格式（例如"9.16.1"）</block>
+  <block id="5e3b1ad08f40862590377b4dc658847f" category="list-text">确保目标版本高于或等于当前集群版本</block>
+  <block id="eac4bea114f45fbcde72bffa9676859b" category="list-text">使用 "current" 保留现有 ONTAP 版本：<block ref="38907dfdc2d957c2999f04423c2c8ce8" prefix=" " category="inline-code"></block> +</block>
+  <block id="5b584e89824b05e3b4d6dd81e09be721" category="section-title">问题：签名验证失败</block>
+  <block id="dd578bb71be5a3c860dfc426be450035" category="paragraph">*原因：*下载的更新文件可能已损坏或已被篡改。</block>
+  <block id="465c2635767beccedfa5e57f64aefbc4" category="paragraph">*解决方案：*</block>
+  <block id="c258ae31abc09d68b232660cf7929016" category="list-text">手动更新 - 从 NetApp 支持站点下载</block>
+  <block id="9240376b345d1a483c6221db6257c009" category="list-text">手动验证签名：</block>
+  <block id="e1b2ac6754c6304f9652925768ee6151" category="section-title">问题：遥测上传失败</block>
+  <block id="f7a8cf20633c17be3d8f1175fa56f991" category="list-text">检查与遥测端点的连接：</block>
+  <block id="0ff7ece9cab0856a25fdf06f1d8c6fd5" category="section-title">问题："UPDATE IN PROGRESS" 锁定文件</block>
+  <block id="8c9b7d617b8e2601babcd67f5004fd9e" category="paragraph">正在进行更新</block>
+  <block id="6f111ca5b9888aeee3176fa324d766ab" category="paragraph">当前正在运行另一个 UHC 自动更新实例。请等待更新完成，然后再次运行。</block>
+  <block id="7b2030c6d7f35bf705b3fef2fd25f4df" category="paragraph">*原因：* 锁定文件存在于之前的更新过程中。</block>
+  <block id="a1a9bf05bd0200049b8b2ed1d648f98d" category="list-text">*等待：* 更新通常在 1-2 分钟内完成。</block>
+  <block id="2458156c4470b544d2fbae9246d52eb6" category="list-text">*如果陈旧，请检查：*（1 小时后自动清理）：</block>
+  <block id="a52b439279a01b88be6bc7a65776dd5e" category="list-text">[[step3]] *手动清理，如有必要：*</block>
+  <block id="2938c7f7e560ed972f8a4f68e80ff834" category="section-title">信息板</block>
+  <block id="7576434732b4f07a539d094d4942f9aa" category="paragraph">该<block ref="c6ea40941291b612a71c04fdbc6d130c" prefix=" " category="inline-code"></block>参数从<block ref="7056e6d35ec8691b2eb0b8b0db5a7ba0" prefix=" " category="inline-code"></block>中的现有运行重新生成仪表板，而无需联系集群。您可以使用它在正常运行之外刷新车队视图。仪表板提供最近评估的所有集群运行状况的高级概览，使您可以轻松地监控和比较多个集群在一个地方的升级就绪情况。您可以在 Web 浏览器中打开仪表板，一目了然地查看每个集群的运行状况、潜在拦截因素和风险。</block>
+  <block id="28849b8ddf75d322380a176b61c9b16f" category="list-text">CLI 参数：<block ref="c6ea40941291b612a71c04fdbc6d130c" prefix=" " category="inline-code"></block></block>
+  <block id="7d9f16c834f0164eb43b6f75f5a9e7ae" category="paragraph">了解升级运行状况检查器 (UHC) 的新增功能。您可以导航到 <block ref="40053797cfb8864b5eaa5f1f6f7991c2" category="inline-link-macro-rx"></block> 中的升级运行状况检查器图块并查看最新的升级运行状况检查器下载文件，以查找其他增强功能信息。</block>
+  <block id="13a1b8a317b4b6dbe05a3757a911ea12" category="section-title">2026 年 6 月 11 日</block>
+  <block id="e6eed926cf73beb76f76f27b527327f4" category="list-text">UHC 支持将报告直接发送到您的收件箱。</block>
+  <block id="3a506ebe2da361710132cacb844329a5" category="paragraph"><block ref="10a34a9ef91da7f8d2b68c9cc9a95cd4" category="inline-link-macro-rx"></block>.</block>
+  <block id="dd968dcb3c3b548604c091104c8e83cf" category="list-text">介绍了 <block ref="c6ea40941291b612a71c04fdbc6d130c" prefix=" " category="inline-code"></block> 参数，该参数可在 <block ref="7056e6d35ec8691b2eb0b8b0db5a7ba0" prefix=" " category="inline-code"></block> 不联系集群的情况下从现有运行中重新生成仪表板。它提供了最近访问的所有集群的健康状态的高级概述。</block>
+  <block id="e06741797ed1dc0a966f53071a491401" category="inline-link-macro">信息板参数</block>
+  <block id="2db3ba2e9c7b7806153c255359ca61d2" category="paragraph"><block ref="cb5987a19cc29bdff093adf9e3c49ecc" category="inline-link-macro-rx"></block>, <block ref="742c6b812eaf7871aa5cdafc51efea43" category="inline-link-macro-rx"></block>.</block>
+  <block id="b8625ecfb276c9ebf1ede5fca0088ca8" category="list-text">介绍一个新的维护、故障排除和常见问题部分。</block>
+  <block id="1ab8a927937778a6689a579c30b0ccaa" category="list-text">通过定期检查更新、监视日志以发现任何反复出现的问题，并确保工具已针对您的环境进行了正确配置，从而维护 Upgrade Health Checker。</block>
+  <block id="dee801512c32b9a598a47b86ba488f76" category="paragraph"><block ref="4e186b263c1e6fa5ae08ef69bdaf2995" category="inline-link-macro-rx"></block>.</block>
+  <block id="f12f1c86955a028fd35ab9eaff2150a3" category="list-text">解决常见的升级运行状况检查器问题，并解决可能阻止 ONTAP 升级计划的错误。</block>
+  <block id="baa81debda1c4b19727722cd64a108d4" category="paragraph"><block ref="3597fe8c8063c1708eb12f618dae69b7" category="inline-link-macro-rx"></block>.</block>
+  <block id="dedb0a1692447383a23033fe650d7fb3" category="paragraph"><block ref="6a92c3eccbf08c1bc6caa0a6e92c02bb" category="inline-link-macro-rx"></block>.</block>
+  <block id="467d7cccaec467a4d67d9bfedb9bccbf" category="sidebar">设置通过电子邮件接收报告</block>
+  <block id="0ff45cc75d0cd4d181c04f8f358944c3" category="sidebar">维护、故障排除、常见问题解答</block>
+  <block id="ade01a5a398372194a42c36e9f5279ac" category="sidebar">维护</block>
+  <block id="d60c463bb4096f3ed4bd1618626dfe10" category="sidebar">故障排除</block>
 </blocks>
