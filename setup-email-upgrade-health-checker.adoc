@@ -13,11 +13,14 @@ summary: 您可以设置电子邮件以接收 Upgrade Health Checker 报告。
 
 
 [role="lead"]
-您可以将电子邮件集成到 Upgrade Health Checker 中，以便在收件箱中接收报告。您可以通过 config.yaml 文件或命令行参数启用此功能。启用后，Upgrade Health Checker 使用 SMTP 服务器将生成的报告（HTML、Excel 或 JSON）发送到一个或多个配置的收件人。禁用该功能时，不会发送任何报告。如果报告生成失败并且启用了电子邮件，则将日志文件发送到配置的收件人。
+升级运行状况检查器可以将报告直接通过电子邮件发送到您的收件箱。通过 config.yaml 文件或命令行参数启用此功能。启用后，升级运行状况检查器将生成的报告（HTML、Excel 或 JSON）通过 SMTP 服务器发送到一个或多个收件人。禁用时，不会发送报告。如果报告生成失败并启用电子邮件，则升级运行状况检查器会将日志文件通过电子邮件发送给配置的收件人。
 
 
 
+[[configure-using-the-config-yaml-file]]
 == 使用 config.yaml 文件进行配置
+
+可以通过启用电子邮件报告、添加 SMTP 服务器详细信息以及指定收件人地址和报告格式，在 config.yaml 文件中配置电子邮件设置。
 
 . 在 config.yaml 文件中启用电子邮件报告。
 +
@@ -27,7 +30,7 @@ summary: 您可以设置电子邮件以接收 Upgrade Health Checker 报告。
 EMAIL:
   ENABLED: true
 ----
-. 提供 SMTP 配置设置以及发件人详细信息和主题：
+. 添加 SMTP 配置设置、发件人详细信息和主题：
 +
 [listing]
 ----
@@ -41,7 +44,7 @@ EMAIL:
     HOST: "smtp.example.com"
     PORT: [<port-number>]
 ----
-. 提供收件人电子邮件地址，并配置通过电子邮件发送的报告格式，例如 HTML、EXCEL、JSON、ALL：
+. 添加收件人电子邮件地址，并设置系统通过电子邮件发送的报告格式，例如 HTML、EXCEL、JSON 或 ALL。您还可以使用身份验证和加密：
 +
 [listing]
 ----
@@ -57,12 +60,20 @@ EMAIL:
   SMTP:
     HOST: "smtp.example.com"
     PORT: [PORT]
+    USE_SMTP_AUTH: true
+    USE_TLS: true
+    USE_SSL: true
+    USERNAME: "user@example.com"
+    PASSWORD: "********"
 ----
 
 
 
 
+[[configure-using-command-line-arguments]]
 == 使用命令行参数配置
+
+您可以使用命令行参数配置基本电子邮件设置，以启用报告、指定收件人和选择报告格式。
 
 . 使用命令行参数启用电子邮件报告：
 +
@@ -86,14 +97,14 @@ EMAIL:
 
 [NOTE]
 ====
-可以使用命令行参数和 config.yaml 文件配置以下三个属性；其余属性只能在 config.yaml 文件中配置：
+您可以使用命令行参数或 config.yaml 文件配置以下三个属性。您只能在 config.yaml 文件中配置所有其余属性：
 
 * 电子邮件已启用
 * 电子邮件收件人
 * 电子邮件报告格式
 
 
-请注意，如果提供了命令行参数，它们将覆盖 config.yaml 文件值。
+请注意，命令行参数会覆盖 config.yaml 文件中的值。
 
 例如：
 

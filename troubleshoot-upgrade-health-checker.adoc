@@ -17,12 +17,14 @@ summary: 升级运行状况检查器故障排除：ONTAP 升级的常见问题�
 
 
 
+[[troubleshoot-issues]]
 == 故障排除问题
 
 {empty} + {empty}
 
 
 
+[[issue-authentication-or-credential-errors]]
 === 问题：身份验证或凭据错误
 
 *症状：*
@@ -50,6 +52,7 @@ Missing cluster credentials
 
 
 
+[[issue-auto-update-fails]]
 === 问题：自动更新失败
 
 *症状：*
@@ -81,6 +84,7 @@ df -h <location of uhc>
 
 
 
+[[issue-binary-takes-a-long-time-to-start]]
 === 问题：二进制文件需要很长时间才能启动
 
 *原因：* 二进制文件是自包含的，需要在执行前自行解包。
@@ -89,6 +93,7 @@ df -h <location of uhc>
 
 
 
+[[issue-permission-denied-or-cannot-execute-binary-on-tmp]]
 === 问题：/tmp 上的"权限被拒绝"或"无法执行二进制文件"
 
 *症状：*
@@ -139,6 +144,7 @@ NOTE: 要使此解决方法有效，必须首先存在自定义路径。如果�
 
 
 
+[[issue-connection-timeout]]
 === 问题：连接超时
 
 *症状：*
@@ -157,6 +163,7 @@ Request timeout
 
 
 
+[[issue-insufficient-disk-space]]
 === 问题：磁盘空间不足
 
 *症状：*
@@ -196,6 +203,7 @@ rm -rf /tmp/_MEI*
 
 
 
+[[issue-invalid-runs-path]]
 === 问题：无效的运行路径
 
 *症状：*
@@ -215,6 +223,7 @@ Cannot create tarball: basepath_runs '<path>' does not exist
 
 
 
+[[issue-invalid-target-ontap-version]]
 === 问题：目标 ONTAP 版本无效
 
 *症状：*
@@ -234,6 +243,7 @@ Downgrade is not supported. Target version must be greater than or equal to the 
 
 
 
+[[issue-signature-verification-fails]]
 === 问题：签名验证失败
 
 *症状：*
@@ -261,6 +271,7 @@ openssl dgst -sha256 -verify UHC-Linux-public.pub -signature uhc.sig uhc
 
 
 
+[[issue-telemetry-upload-failure]]
 === 问题：遥测上传失败
 
 *症状：*
@@ -283,6 +294,7 @@ Telemetry endpoint is not reachable
 
 
 
+[[issue-update-in-progress-lock-file]]
 === 问题："UPDATE IN PROGRESS" 锁定文件
 
 *症状：*

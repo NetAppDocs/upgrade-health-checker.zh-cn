@@ -17,6 +17,7 @@ summary: 您可以了解有关 Upgrade Health Checker 的输入参数的更多�
 
 
 
+[[input-methods-priority]]
 == 输入法优先级
 
 升级运行状况检查器为所有参数提供多个输入选项。其接受输入的优先顺序为：
@@ -30,10 +31,12 @@ summary: 您可以了解有关 Upgrade Health Checker 的输入参数的更多�
 
 
 
+[[input-parameters]]
 == 输入参数
 
 
 
+[[cluster-ip]]
 === 集群 IP
 
 该 `--cluster-ip` 参数指定要连接到的 ONTAP 集群的 IP 地址或主机名。
@@ -68,6 +71,7 @@ CLUSTER:
 ====
 
 
+[[cluster-username]]
 === 集群用户名
 
 该 `--cluster-username` 参数指定用于与 ONTAP 集群进行身份验证的用户名。
@@ -102,6 +106,7 @@ CLUSTER:
 ====
 
 
+[[cluster-password]]
 === 集群密码
 
 该 `--cluster-password` 参数指定用于与 ONTAP 集群进行身份验证的密码。
@@ -136,6 +141,7 @@ CLUSTER:
 ====
 
 
+[[target-ontap-version]]
 === 目标 ONTAP 版本
 
 该 `--target-ontap-version`参数指定要升级到以进行分析的 ONTAP 版本。使用"current"保留现有集群 ONTAP 版本。
@@ -173,6 +179,7 @@ CLUSTER:
 ====
 
 
+[[accept-eula]]
 === 接受 EULA
 
 该 `--accept-eula` 参数指定是否接受最终用户许可协议。必须设置为 `true` 才能继续。
@@ -207,6 +214,7 @@ CLUSTER:
 ====
 
 
+[[configuration-file-path]]
 === 配置文件路径
 
 此  `--config-path` 参数指定自定义配置 YAML 文件的路径。
@@ -233,6 +241,7 @@ CLUSTER:
 ====
 
 
+[[run-output-path]]
 === 运行输出路径
 
  `--runs-path` 参数指定用于存储运行输出和报告的自定义目录。
@@ -267,6 +276,7 @@ APP:
 ====
 
 
+[[skip-compatibility-check]]
 === 跳过兼容性检查
 
 该 `--skip-compatibility-check`参数绕过硬件兼容性检查并使用要升级到的指定版本的 ONTAP。
@@ -300,6 +310,7 @@ CLUSTER:
 ====
 
 
+[[dashboard]]
 === 信息板
 
 该 `--dashboard`参数从 `<runs>/dashboard/index.html`中的现有运行重新生成仪表板，而无需联系集群。您可以使用它在正常运行之外刷新车队视图。仪表板提供最近评估的所有集群运行状况的高级概览，使您可以轻松地监控和比较多个集群在一个地方的升级就绪情况。您可以在 Web 浏览器中打开仪表板，一目了然地查看每个集群的运行状况、潜在拦截因素和风险。
@@ -323,6 +334,7 @@ CLUSTER:
 ====
 
 
+[[disable-telemetry]]
 === 禁用遥测
 
 要禁用遥测，请将以下内容添加到  `config.yaml` 文件：
@@ -334,6 +346,7 @@ TELEMETRY:
 ----
 
 
+[[disable-automatic-updates]]
 === 禁用自动更新
 
 若要禁用 Upgrade Health Checker 的自动更新，请将以下内容添加到 `config.yaml`文件中：
@@ -345,10 +358,12 @@ AUTO_UPDATE:
 ----
 
 
+[[examples-using-each-input-method]]
 == 使用每种输入法的示例
 
 
 
+[[combined-cli-arguments]]
 === 组合的 CLI 参数
 
 [listing]
@@ -365,6 +380,7 @@ AUTO_UPDATE:
 ----
 
 
+[[config-yaml-file]]
 === Config.yaml 文件
 
 [listing]
@@ -382,6 +398,7 @@ APP:
 ----
 
 
+[[interactive-mode]]
 === 交互模式
 
 要交互式提示所有必需的输入参数，请运行不带参数的 Upgrade Health Checker：
@@ -392,6 +409,7 @@ APP:
 ----
 
 
+[[additional-commands]]
 == 其他命令
 
 除了完整运行该工具之外，这些命令还提供了一些额外的功能：

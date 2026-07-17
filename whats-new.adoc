@@ -1,5 +1,5 @@
 ---
-sidebar: sidebarU 
+sidebar: sidebar 
 permalink: whats-new.html 
 keywords: upgrade, health, checker, whats new, release, notes 
 summary: 了解此文档站点的新增功能。 
@@ -17,9 +17,24 @@ summary: 了解此文档站点的新增功能。
 
 
 
+[[17-july-2026]]
+== 2026年7月17日
+
+此更新增加了几项增强功能，包括机群风险视图仪表板、电子邮件身份验证和加密支持、驱动器计数报告、推荐的 ONTAP 版本支持以及 NAS 和 SAN IMT 检查。
+
+* UHC 仪表板：*Fleet Risk* 视图现已可用
+* 电子邮件集成：支持具有身份验证和加密功能的电子邮件服务器
+* 在报告的集群摘要中添加了*驱动器计数*
+* 现在支持推荐的 ONTAP 版本
+* 增加了对 NAS 和 SAN IMT 检查的支持
+
+
+
+
+[[11-june-2026]]
 == 2026 年 6 月 11 日
 
-此升级运行状况检查器文档更新包含以下功能。
+此更新添加了用于报告的电子邮件传递、用于快速运行状况概述的仪表板参数以及新的文档部分，以帮助您维护和排除 Upgrade Health Checker 故障。
 
 * UHC 支持将报告直接发送到您的收件箱。
 +
@@ -31,7 +46,7 @@ link:dashboard-upgrade-health-checker.html["升级运行状况检查器仪表板
 
 * 介绍一个新的维护、故障排除和常见问题部分。
 +
-** 通过定期检查更新、监视日志以发现任何反复出现的问题，并确保工具已针对您的环境进行了正确配置，从而维护 Upgrade Health Checker。
+** 通过检查更新、监视反复出现的问题的日志以及验证是否正确配置该工具来维护升级运行状况检查器。
 +
 link:maintain-upgrade-health-checker.html["维护升级运行状况检查器"].
 
@@ -49,11 +64,12 @@ link:faq-upgrade-health-checker.html["升级运行状况检查器的常见问题
 
 
 
+[[15-april-2026]]
 == 2026 年 4 月 15 日
 
-此升级运行状况检查器文档更新包含以下功能。
+此更新添加了新的 XLSX 报告格式，并要求访问新的端点以使自动更新正常工作。
 
-* UHC 需要访问新的端点（+https://api.activeiq.netapp.com+），以便自动更新功能正常工作。
+* 您必须授予 UHC 对新端点（+https://api.activeiq.netapp.com+）的访问权限，自动更新功能才能正常工作。
 +
 link:set-up-upgrade-health-checker.html["下载并设置 Upgrade Health Checker"]。
 
@@ -68,8 +84,9 @@ link:automate-report-upgrade-health-checker.html["使用 Upgrade Health Checker 
 
 
 
+[[13-february-2026]]
 == 2026 年 2 月 13 日
 
-Upgrade Health Checker 为生成全面的现场报告提供了一种新的解决方案，使您能够成功完成 ONTAP 升级。它可以与现有的自动化和编排框架一起使用，以在升级单个或多个集群时提高效率。Upgrade Health Checker 支持升级到 ONTAP 9.11.1 及更高版本。
+Upgrade Health Checker 现已推出。此工具生成详细的现场报告，帮助您成功完成 ONTAP 升级。您可以将 Upgrade Health Checker 与现有的自动化和编排框架结合使用，以便在升级单个或多个集群时节省时间。Upgrade Health Checker 支持升级到 ONTAP 9.11.1 及更高版本。
 
 link:learn-about-upgrade-health-checker.html["详细了解 Upgrade Health Checker"]。

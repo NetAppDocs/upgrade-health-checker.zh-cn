@@ -17,6 +17,7 @@ summary: '升级运行状况检查器的常见问题 (FAQ)。'
 
 
 
+[[how-does-upgrade-health-checker-differ-from-upgrade-advisor]]
 == Upgrade Health Checker 与 Upgrade Advisor 有何不同？
 
 Upgrade Health Checker 是一种现场工具，适用于具有大型或复杂环境、对互联网的访问受限或现有自动化和协调框架的用户。Upgrade Advisor 适用于环境较小的用户，他们更喜欢基于云的、以 UI 为中心的体验。
@@ -25,12 +26,14 @@ Upgrade Health Checker 是一种现场工具，适用于具有大型或复杂环
 
 
 
+[[what-information-does-an-upgrade-health-checker-report-include]]
 == 升级运行状况检查器报告包含哪些信息？
 
 升级运行状况检查器报告提供了有关在升级 ONTAP 群集之前需要解决的潜在阻止因素和警告的详细信息、与群集相关的风险以及有关要升级到的 ONTAP 版本中新功能和增强功能的信息。
 
 
 
+[[can-upgrade-health-checker-be-used-without-an-internet-connection]]
 == 可以在没有互联网连接的情况下使用 Upgrade Health Checker 吗？
 
 您无需互联网连接即可运行 Upgrade Health Checker。它使用您的 ONTAP 集群的当前配置数据生成现场升级计划和报告。
@@ -39,6 +42,7 @@ Upgrade Health Checker 是一种现场工具，适用于具有大型或复杂环
 
 
 
+[[what-versions-of-ontap-does-upgrade-health-checker-support]]
 == Upgrade Health Checker 支持哪些版本的 ONTAP？
 
 升级运行状况检查器支持本地 ONTAP 9.11.1 及更高版本的升级。
