@@ -399,4 +399,6 @@
   <block id="856fc3b929c90b3c81bd17984abe77cd" category="list-text">集群报告现在包括驱动器计数，以及 ONTAP 版本、节点计数和容量。这样便完成了升级和容量规划的硬件快照。</block>
   <block id="eed66fd70ff3d1349ac990af700a5a10" category="list-text">UHC 评估现在包括建议的升级目标 ONTAP 版本。</block>
   <block id="70f1990f138a67936a4113eceb3a2154" category="list-text">增加了对 NAS 和 SAN IMT 检查的支持。</block>
+  <block id="01b8b50c6af6a26d04385207f4b3c02e" category="section-title">2026年8月13日</block>
+  <block id="03276a80a231fea1196fc4e6e3ab6682" category="paragraph">此更新增强了 SAN 和 NAS ONTAP 集群的互操作性检查，并修复了一些现有问题。</block>
 </blocks>
