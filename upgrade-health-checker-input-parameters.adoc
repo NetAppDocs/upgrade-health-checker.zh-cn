@@ -4,7 +4,7 @@ permalink: upgrade-health-checker-input-parameters.html
 keywords: upgrade, health, checker, input, parameter 
 summary: 您可以了解有关 Upgrade Health Checker 的输入参数的更多信息，以帮助您为 ONTAP 集群生成升级报告。 
 ---
-= 了解 Upgrade Health Checker 的输入参数
+= 升级运行状况检查器的输入参数
 :hardbreaks:
 :allow-uri-read: 
 :icons: font
