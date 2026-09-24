@@ -282,10 +282,8 @@
   <block id="176c0fe1d322d9a51e31204aad32eae6" category="paragraph">*ONTAP 版本*</block>
   <block id="92545160fc537c4d5544686c4bcdf2e5" category="cell">运行 ONTAP 9.11.1 或更高版本的集群</block>
   <block id="71158affd0036fb2466b1fb9e9ae37b4" category="paragraph">*托管要求*</block>
-  <block id="fffb00fef85cf67efb62289a6532ecf2" category="cell">将虚拟机放置在具有群集连接和互联网访问的位置，以允许自动工具更新。计算机应通过 HTTPS (443) 访问以下端点，以执行自动更新并启用 NetApp 接收有关升级计划的 AutoSupport 信息： <block ref="b6fcb4b13f321b8cb388d57eb2e860ab" category="inline-link-rx"></block> <block ref="072b499eacb5befcbdab2d6cc0fe02a0" category="inline-link-rx"></block> <block ref="53fb0fc7c544c164b74ed43fbccd4384" category="inline-link-rx"></block> <block ref="1e149c7d9ce6dc9e42acefe98045ece8" category="inline-link-rx"></block></block>
   <block id="6416dbbf5267211166cfea2ed336e59e" category="paragraph">*推荐软件包*</block>
   <block id="38f5250c3529fb3f11c0374bdaf9aeaa" category="cell">安装 Web 服务器以方便访问</block>
-  <block id="6063847442b88d203c59c2c6de6f2e53" category="admonition">确保虚拟机可以通过 HTTPS (443) 连接到自动更新和遥测端点（<block ref="dff1129755a63688cdc5de28dfe608ad" category="inline-link-rx"></block> 和 <block ref="b6e65db6bdd125b2fca849ddf715a294" category="inline-link-rx"></block>），以启用 NetApp 接收有关升级计划的 AutoSupport 信息。如果互联网访问不可用，您必须手动下载最新版本的 Upgrade Health Checker。</block>
   <block id="fd2112d1826143e744670603b8189778" category="list-text">导航到 <block ref="40053797cfb8864b5eaa5f1f6f7991c2" category="inline-link-macro-rx"></block> 并找到 Upgrade Health Checker 磁贴，下载 Upgrade Health Checker 二进制文件。</block>
   <block id="0028a1b2c66adc5ceda52b78a1cdb74d" category="paragraph">必须为 HTTP 应用程序创建服务帐户。使用以下 CLI 命令配置必要的权限：</block>
   <block id="30f60d67f457bb040dffde52197a54da" category="list-title">相关信息</block>
@@ -402,4 +400,6 @@
   <block id="03276a80a231fea1196fc4e6e3ab6682" category="paragraph">此更新增强了 SAN 和 NAS ONTAP 集群的互操作性检查，并修复了一些现有问题。</block>
   <block id="13fcda6342963d7d59aa8e893c2fe5c0" category="doc">使用 Upgrade Health Checker 生成升级计划</block>
   <block id="d37632fbc2f0f1b27ade5808d2dec434" category="doc">Upgrade Health Checker 的法律声明</block>
+  <block id="58ce19f9d14bbf36c99916598d07b7c7" category="cell">将虚拟机放置在具有集群连接和互联网访问的位置，以允许自动工具更新。计算机应通过 HTTPS (443) 访问以下端点，以执行自动更新并启用 NetApp 接收有关升级计划的 AutoSupport 信息：\https://support.netapp.com \https://api.uhc.netapp.com \https://gql.aiq.netapp.com \https://api.activeiq.netapp.com</block>
+  <block id="f8dfac59d1fb625ac9d81d11aafbcd07" category="admonition">确保虚拟机可以通过 HTTPS (443) 连接到自动更新和遥测端点（\https://support.netapp.com/ 和 \https://api.activeiq.netapp.com），以使 NetApp 能够接收有关您的升级计划的 AutoSupport 信息。如果无法访问互联网，您必须手动下载最新版本的 Upgrade Health Checker。</block>
 </blocks>
