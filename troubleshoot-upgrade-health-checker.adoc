@@ -2,7 +2,7 @@
 sidebar: sidebar 
 permalink: troubleshoot-upgrade-health-checker.html 
 keywords: upgrade, health, checker, troubleshoot, issues, errors, ontap 
-summary: 升级运行状况检查器故障排除：ONTAP 升级的常见问题、错误和解决方案。 
+summary: 通过查看 ONTAP 升级的常见问题、错误和解决方案，排除升级运行状况检查器的故障。 
 ---
 = 升级运行状况检查器疑难解答
 :hardbreaks:
