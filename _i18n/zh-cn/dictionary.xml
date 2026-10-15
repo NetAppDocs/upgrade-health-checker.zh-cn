@@ -402,4 +402,10 @@
   <block id="58ce19f9d14bbf36c99916598d07b7c7" category="cell">将虚拟机放置在具有集群连接和互联网访问的位置，以允许自动工具更新。计算机应通过 HTTPS (443) 访问以下端点，以执行自动更新并启用 NetApp 接收有关升级计划的 AutoSupport 信息：\https://support.netapp.com \https://api.uhc.netapp.com \https://gql.aiq.netapp.com \https://api.activeiq.netapp.com</block>
   <block id="f8dfac59d1fb625ac9d81d11aafbcd07" category="admonition">确保虚拟机可以通过 HTTPS (443) 连接到自动更新和遥测端点（\https://support.netapp.com/ 和 \https://api.activeiq.netapp.com），以使 NetApp 能够接收有关您的升级计划的 AutoSupport 信息。如果无法访问互联网，您必须手动下载最新版本的 Upgrade Health Checker。</block>
   <block id="7b109a0da4b947e1ef4b1af915317559" category="summary">通过查看 ONTAP 升级的常见问题、错误和解决方案，排除升级运行状况检查器的故障。</block>
+  <block id="f633c86b0317ff4aa3fa992245e2b77a" category="section-title">2026年10月15日</block>
+  <block id="273251dcc234403d19bf0e1b8a9c54c2" category="paragraph">此更新为目标版本风险评估、报告详细信息、建议的 ONTAP 版本选择和固件建议添加了一些增强功能。</block>
+  <block id="e8f602fbb5275e969de02c4ff90239cc" category="list-text">UHC 评估现在针对目标版本评估 ONTAP 风险。</block>
+  <block id="3c352be1f1f9a774d8de0a66650f2a00" category="list-text">报告现在包括 CVE ID、CVSS 分数和建议的修复版本。</block>
+  <block id="fe6994d091ee557d1bc609b9f347f0e5" category="list-text">UHC 现在支持使用 <block ref="1bd361f49e949b9f207ae59725d3ed48" prefix=" " category="inline-code"></block> 参数或在 <block ref="259fe82e12a866f01123927480c7851b" prefix=" " category="inline-code"></block> 文件中自动选择 ONTAP 版本。</block>
+  <block id="5ffdabc76a252a34c19dc9bbdcd1ff5b" category="list-text">报告现在包括推荐的固件版本。</block>
 </blocks>
