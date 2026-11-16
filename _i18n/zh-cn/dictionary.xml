@@ -406,6 +406,10 @@
   <block id="273251dcc234403d19bf0e1b8a9c54c2" category="paragraph">此更新为目标版本风险评估、报告详细信息、建议的 ONTAP 版本选择和固件建议添加了一些增强功能。</block>
   <block id="e8f602fbb5275e969de02c4ff90239cc" category="list-text">UHC 评估现在针对目标版本评估 ONTAP 风险。</block>
   <block id="3c352be1f1f9a774d8de0a66650f2a00" category="list-text">报告现在包括 CVE ID、CVSS 分数和建议的修复版本。</block>
-  <block id="fe6994d091ee557d1bc609b9f347f0e5" category="list-text">UHC 现在支持使用 <block ref="1bd361f49e949b9f207ae59725d3ed48" prefix=" " category="inline-code"></block> 参数或在 <block ref="259fe82e12a866f01123927480c7851b" prefix=" " category="inline-code"></block> 文件中自动选择 ONTAP 版本。</block>
   <block id="5ffdabc76a252a34c19dc9bbdcd1ff5b" category="list-text">报告现在包括推荐的固件版本。</block>
+  <block id="6b3529a2a10bfee089b3f638467b7e2b" category="section-title">2026年10月28日</block>
+  <block id="325e52854858e04755ae213c8d115dea" category="paragraph">此更新添加了自动选择最新 ONTAP 修补程序版本的功能，并在报告中列出支持的 ONTAP HotFix 升级版本。</block>
+  <block id="428497b30d56e595e7b8a586873571fc" category="list-text">提供使用<block ref="e32d3e545f4ee67e40af7936e4051a3e" prefix=" " category="inline-code"></block>或使用<block ref="259fe82e12a866f01123927480c7851b" prefix=" " category="inline-code"></block>文件自动选择最新 ONTAP 修补程序版本的功能。</block>
+  <block id="56d532fa14adf0150f0553c398ba85a1" category="list-text">支持的 ONTAP HotFix 升级版本现在列在报告中。</block>
+  <block id="b8c3d27a6b7a61bca4f7cf2ed9d3bdcd" category="list-text">UHC 现在支持使用 <block ref="1bd361f49e949b9f207ae59725d3ed48" prefix=" " category="inline-code"></block> 参数或在 <block ref="259fe82e12a866f01123927480c7851b" prefix=" " category="inline-code"></block> 文件中自动选择推荐的 ONTAP 版本。</block>
 </blocks>
