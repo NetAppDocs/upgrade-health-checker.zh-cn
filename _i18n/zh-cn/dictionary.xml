@@ -412,4 +412,8 @@
   <block id="428497b30d56e595e7b8a586873571fc" category="list-text">提供使用<block ref="e32d3e545f4ee67e40af7936e4051a3e" prefix=" " category="inline-code"></block>或使用<block ref="259fe82e12a866f01123927480c7851b" prefix=" " category="inline-code"></block>文件自动选择最新 ONTAP 修补程序版本的功能。</block>
   <block id="56d532fa14adf0150f0553c398ba85a1" category="list-text">支持的 ONTAP HotFix 升级版本现在列在报告中。</block>
   <block id="b8c3d27a6b7a61bca4f7cf2ed9d3bdcd" category="list-text">UHC 现在支持使用 <block ref="1bd361f49e949b9f207ae59725d3ed48" prefix=" " category="inline-code"></block> 参数或在 <block ref="259fe82e12a866f01123927480c7851b" prefix=" " category="inline-code"></block> 文件中自动选择推荐的 ONTAP 版本。</block>
+  <block id="d02493941160acc73e12773f810e6b13" category="section-title">2026年11月19日</block>
+  <block id="a80c4b609d83b206bc9be17575c1ce85" category="paragraph">此更新增强了 HTML 报告的 CVE 详细信息，并显著提升了性能。</block>
+  <block id="9e21447338c663ba6a8f107a6db2e8a5" category="list-text">HTML 报告现在显示每个 CVE 的建议版本和严重程度。</block>
+  <block id="6be5d7a0eb5b4022c1b6443c38d7004c" category="list-text">性能改进显著减少了 UHC 内存、存储和运行时间消耗。</block>
 </blocks>
